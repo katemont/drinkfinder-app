@@ -7,6 +7,7 @@ gem 'devise'
 gem 'ransack'
 gem 'carrierwave', '0.9.0'
 gem 'rmagick'
+gem 'foundation-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
