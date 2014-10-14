@@ -14,9 +14,23 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
+  %nav
+  %ul.side-nav
+    %li
+      %a{:href => "#"} Link 1
+    %li
+      %a{:href => "#"} Link 2
+    %li
+      %a{:href => "#"} Link 3
+    %li
+      %a{:href => "#"} Link 4
   %body
     = yield
     = javascript_include_tag "application"
-
+  %footer
+    .container
+      \© Kate Montgomery 2014
+      
+   
     %p.notice= notice
     %p.alert= alert
