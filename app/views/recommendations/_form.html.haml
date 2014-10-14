@@ -1,1 +1,13 @@
-_form.html.haml
+= form_for(@recommendation) do |f|
+  - if @recommendation.errors.any?
+      %h2
+        = pluralize(@recommendation.errors.count, "error")
+        prohibited this recommendation from being saved:
+      %ul
+        - @recommendation.errors.full_messages.each do |msg|
+          %li= msg
+  %div
+    = f.text_area :review
+  
+  .actions
+    = f.submit

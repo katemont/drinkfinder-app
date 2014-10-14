@@ -1,1 +1,16 @@
-index.html.haml
+%h1 Recommendations
+%table
+  %thead
+    %tr
+      %th Review
+      %th Bar
+      %th Tags
+      %thead 
+      %th
+      %th
+    - @recommendations.each do |recommendation|
+      %tr
+        %td= recommendation.review
+        / %td= link_to 'Show', user
+        / %td= link_to 'Edit', edit_user_path(user)
+        / %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
