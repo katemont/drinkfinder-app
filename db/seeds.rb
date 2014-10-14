@@ -16,9 +16,9 @@ User.create(email: "peter@gmail.com", password: "password")
 Recommendation.delete_all
 
 Recommendation.create(review: "Only open til 9pm, but the wines, cheese and charcuterie here are all great value and delivered by charming people – fine wines by the glass and bottle")
-Recommendation.create(review: "Gastropub heaven – have drinks downstairs and then dine finely upstairs or grab an unbookable table at the back downstairs with dramatic views of the kitchen")
+Recommendation.create(review: "They keep it simple at this Harveys owned Victorian pub. Good beer, no music and a friendly crowd.")
 Recommendation.create(review: "Gastropub heaven – have drinks downstairs and then dine finely upstairs or grab an unbookable table at the back downstairs with dramatic views of the kitchen")
 Recommendation.create(review:"A wacky alternative to the grit and bare bricks of East London, the vibrant décor and always busy surroundings mean it's never just one drink. They also have an extensive and decent wine list, featuring English variants of all things")
-
+Recommendation.create(review:"Oasis of uber-contemporary Zen in the heart of the hubbub, great cocktails although they come at a price")
 
 
