@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
-User.create(email: "kate.montgomery@drinkfinder.com", password: "password")
-User.create(email: "chris@gmail.com", password: "password")
-User.create(email: "adam@gmail.com", password: "password")
-User.create(email: "tony@gmail.com", password: "password")
-User.create(email: "peter@gmail.com", password: "password")
+User.create(email: "kate.montgomery@drinkfinder.com", password: "password", role: "admin", username: "Monty", name: "Kate Montgomery")
+User.create(email: "chris@gmail.com", password: "password", role: "admin", username: "Chris", name: "Chris McMahon")
+User.create(email: "adam@gmail.com", password: "password", role: "user", username: "Adam", name: "Adam Bass")
+User.create(email: "tony@gmail.com", password: "password", role: "user", username: "Tony", name: "Tony Laverty")
+User.create(email: "peter@gmail.com", password: "password",  role: "user",username: "Peter", name: "Peter Montgomery")
 
 Recommendation.delete_all
 
