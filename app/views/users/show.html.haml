@@ -1,16 +1,15 @@
 
-/ %p= notice
-/ / %p
-/ /   %b Name:
-/ /   = @user.name
-/ / %p
-/ /   %b Id:
-/ /   = @user.id
+/ %p#notice= notice
 / %p
-/   %b Email:
-/   = @user.email
-  
-/   / %b Profile pic:
-/   / = @user.profile_pic
+/   %b Name:
+/   = @user.name
+/ %p
+/   %b Id:
+/   = @user.id
+/ %p
+/   %b Profile pic:
+/   = @user.profile_pic
 / = link_to 'Edit', edit_user_path(@user)
 / = link_to 'Back', users_path
+= @user.email
+
