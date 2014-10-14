@@ -3,10 +3,20 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+    %title= content_for?(:title) ? yield(:title) : "drinkfinder"
+    .login
+      - if current_user
+        = current_user.email
+        = link_to "Log out", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Sign In", new_user_session_path
+        = link_to "Register", new_user_registration_path
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
   %body
     = yield
     = javascript_include_tag "application"
+
+    %p.notice= notice
+    %p.alert= alert
