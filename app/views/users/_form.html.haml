@@ -7,12 +7,12 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  / %div
-  /   = f.label :name
-  /   = f.text_field :name, autofocus: true
-  / %div
-  /   = f.label :user_name
-  /   = f.text_field :user_name
+  %div
+    = f.label :name
+    = f.text_field :name, autofocus: true
+  %div
+    = f.label :username
+    = f.text_field :username
   %div
     = f.label :email
     = f.text_field :email
