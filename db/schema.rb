@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141013131214) do
+ActiveRecord::Schema.define(:version => 20141014135114) do
+
+  create_table "recommendations", :force => true do |t|
+    t.text     "review"
+    t.integer  "bar_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
