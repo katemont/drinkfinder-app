@@ -8,6 +8,7 @@ gem 'ransack'
 gem 'carrierwave', '0.9.0'
 gem 'rmagick'
 gem 'foundation-rails'
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

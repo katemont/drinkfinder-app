@@ -1,13 +1,17 @@
 class RecommendationsController < ApplicationController
 
   def index
-    @recommendations = Recommendation.all
-
+    if params[:tag]
+      @recommendations = Recommendation.tagged_with(params[:tag])
+    else
+      @recommendations = Recommendation.all
+      
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recommendations }
     end
   end
+end
 
   def show
     @recommendation = Recommendation.find(params[:id])
