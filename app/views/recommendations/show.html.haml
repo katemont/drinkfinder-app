@@ -1,4 +1,5 @@
 = @recommendation.review
+= raw @recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
 = link_to 'Edit', edit_recommendation_path(@recommendation)
 = link_to 'Back', recommendations_path
