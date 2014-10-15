@@ -17,13 +17,19 @@
   %nav
   %ul.side-nav
     %li
-      %a{:href => "#"} Link 1
+      %a= link_to 'Recommendations', recommendations_path
     %li
-      %a{:href => "#"} Link 2
+      %a= link_to 'Users', users_path
     %li
-      %a{:href => "#"} Link 3
+      %a= link_to 'New recommendation', new_recommendation_path
     %li
-      %a{:href => "#"} Link 4
+      %a{:href => "#"} Trending
+    %li
+      / %a= link_to 'Profile', current_user_path
+    %li
+      %a{:href => "#"} Surprise me
+  %header
+    %h1 drinkfindr
   %body
     = yield
     = javascript_include_tag "application"
