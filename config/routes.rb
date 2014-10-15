@@ -4,6 +4,7 @@ DrinkfinderApp::Application.routes.draw do
   root to: "users#index"
   resources :users
   resources :recommendations
+  resources :bars
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
