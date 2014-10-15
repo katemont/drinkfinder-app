@@ -23,11 +23,13 @@
     %li
       %a= link_to 'New recommendation', new_recommendation_path
     %li
-      %a{:href => "#"} Trending
+      %a= link_to 'Bar index', bars_path
+    %li
+      / %a{:href => "#"} Trending
     %li
       / %a= link_to 'Profile', current_user_path
     %li
-      %a{:href => "#"} Surprise me
+      / %a{:href => "#"} Surprise me
   %header
     %h1 drinkfindr
   %body
