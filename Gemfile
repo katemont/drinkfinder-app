@@ -8,6 +8,8 @@ gem 'ransack'
 gem 'carrierwave', '0.9.0'
 gem 'rmagick'
 gem 'foundation-rails'
+gem 'alerts-sweet-rails', '~> 0.0.2'
+gem 'sweet-alert-confirm', '~> 0.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
