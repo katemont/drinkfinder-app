@@ -1,6 +1,15 @@
-= @recommendation.bar.try :name
-= @recommendation.review
-= raw @recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+%table
+  %thead
+    %tr
+      %th Name
+      %th Location
+      %th Review
+      %th Tags
+    %tr
+      %td= @recommendation.bar.try :name
+      %td= @recommendation.bar.try :location
+      %td= @recommendation.review
+      %td= raw @recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
 = link_to 'Edit', edit_recommendation_path(@recommendation)
 = link_to 'Back', recommendations_path
