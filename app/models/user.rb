@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
   mount_uploader :profile_pic, ProfilePicUploader
 
   has_many :recommendations
+
+  include Gravtastic
+   gravtastic size: 75, default: "retro", secure: true 
 end

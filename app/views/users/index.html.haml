@@ -2,6 +2,7 @@
 %table
   %thead
     %tr
+      %th Pic
       %th Name
       %th Email
       %th Role
@@ -9,10 +10,13 @@
       %th
     - @users.each do |user|
       %tr
-        %td= user.name
+        %td
+        - if user.profile_pic?
+          = link_to image_tag(user.profile_pic.thumb.url), user.profile_pic.detail.url  
+        - else
+          = link_to image_tag user.gravatar_url
         %td= user.email
         %td= user.role
-        %td= link_to image_tag(user.profile_pic.thumb.url), user.profile_pic.detail.url
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
         %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }

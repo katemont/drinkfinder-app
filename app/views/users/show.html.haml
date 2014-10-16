@@ -4,7 +4,10 @@
   = @user.name
 %p
   %b Profile pic:
-  = link_to image_tag(@user.profile_pic.thumb.url), @user.profile_pic.detail.url 
+  - if @user.profile_pic?
+    = link_to image_tag(@user.profile_pic.thumb.url), @user.profile_pic.detail.url  
+  - else
+    = link_to image_tag @user.gravatar_url
 %p
   %b Email:
   = @user.email
