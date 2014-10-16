@@ -13,5 +13,5 @@ class User < ActiveRecord::Base
   has_many :recommendations
 
   include Gravtastic
-   gravtastic size: 75, default: "retro", secure: true 
+   gravtastic size: 50, default: "retro", secure: true 
 end
