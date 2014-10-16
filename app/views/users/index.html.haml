@@ -2,7 +2,7 @@
 %table
   %thead
     %tr
-      %th Pic
+      %th Picture
       %th Name
       %th Email
       %th Role
@@ -11,10 +11,10 @@
   - @users.each do |user|
     %tr
       %td
-      - if user.profile_pic?
-        = link_to image_tag(user.profile_pic.thumb.url), user.profile_pic.detail.url  
-      - else
-        = link_to image_tag user.gravatar_url
+        - if user.profile_pic?
+          = link_to image_tag(user.profile_pic.thumb.url), user.profile_pic.detail.url  
+        - else
+          = link_to image_tag user.gravatar_url
       %td= user.email
       %td= user.role
       %td= link_to 'Show', user

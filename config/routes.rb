@@ -3,7 +3,7 @@ DrinkfinderApp::Application.routes.draw do
 
   get 'tags/:tag', to: 'users#index', as: :tag
 
-  root to: "users#index"
+  root to: "recommendations#index"
   resources :users
   resources :recommendations
   resources :bars
