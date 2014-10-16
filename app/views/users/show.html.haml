@@ -4,7 +4,7 @@
   = @user.name
 %p
   %b Profile pic:
-  = @user.profile_pic
+  = image_tag @user.profile_pic.url
 %p
   %b Email:
   = @user.email
