@@ -5,6 +5,7 @@
 %table
   %thead
     %tr
+      %th Bar
       %th Review
       %th Tags
       %thead 
@@ -12,6 +13,7 @@
       %th
     - @recommendations.each do |recommendation|
       %tr
+        %td= recommendation.bar
         %td= recommendation.review
         %td= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
         %td= link_to 'Show', recommendation

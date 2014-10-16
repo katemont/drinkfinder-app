@@ -6,6 +6,8 @@
     %ul
       - @recommendation.errors.full_messages.each do |msg|
         %li= msg
+  / %div
+  /   = f.text_field :bar_name
   %div
     = f.text_field :review
   %div
