@@ -4,12 +4,13 @@
     %tr
       %th Name
       %th Location
-      %th
+      %th 
+      %th 
       %th
     - @bars.each do |bar|
       %tr
         %td= bar.name
-        %td= bar.location
+        %td= bar.location       
         %td= link_to 'Show', bar
         %td= link_to 'Edit', edit_bar_path(bar)
         %td= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' }
