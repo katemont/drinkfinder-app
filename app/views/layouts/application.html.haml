@@ -30,11 +30,40 @@
       / %a= link_to 'Profile', current_user_path
     %li
       / %a{:href => "#"} Surprise me
-  %header
+  .off-canvas-wrap{"data-offcanvas" => ""}
+    .inner-wrap
+      %nav.tab-bar
+        %section.left-small
+          %a.left-off-canvas-toggle.menu-icon{:href => "#"}
+            %span
+        %section.middle.tab-bar-section
+          %h1.title Drinkfindr
+        %section.right-small
+          %a.right-off-canvas-toggle.menu-icon{:href => "#"}
+            %span
+      %aside.left-off-canvas-menu
+        %ul.off-canvas-list
+          %li
+            %label Menu
+          %li
+            %a{:href => "#"} The Psychohistorians
+          %li
+            %a{:href => "#"} The Psychohistorians
+      / %aside.right-off-canvas-menu
+      /   %ul.off-canvas-list
+      /     %li
+      /       %label Users
+      /     %li
+      /       %a{:href => "#"} Hari Seldon
+      %section.main-section
+      %a.exit-off-canvas
+      %header
     %h1 drinkfindr
   %body
     = yield
     = javascript_include_tag "application"
+    :javascript
+      $(document).foundation();
   %footer
     .container
       \© Kate Montgomery 2014
