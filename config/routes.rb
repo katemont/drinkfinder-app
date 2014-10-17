@@ -1,7 +1,7 @@
 DrinkfinderApp::Application.routes.draw do
   devise_for :users
 
-  get 'tags/:tag', to: 'users#index', as: :tag
+  get 'tags/:tag', to: 'recommendations#index', as: :tag
 
   root to: "recommendations#index"
   resources :users
