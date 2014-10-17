@@ -38,6 +38,7 @@ end
 
   def create
     @recommendation = Recommendation.new(params[:recommendation])
+    @recommendation.user = current_user
 
     respond_to do |format|
       if @recommendation.save
