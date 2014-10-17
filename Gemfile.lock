@@ -85,6 +85,7 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    geocoder (1.2.5)
     gravtastic (3.2.6)
     haml (4.1.0.beta.1)
       tilt
@@ -237,6 +238,7 @@ DEPENDENCIES
   erb2haml
   factory_girl_rails
   foundation-rails
+  geocoder
   gravtastic
   haml-rails
   jquery-rails
