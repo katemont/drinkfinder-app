@@ -24,6 +24,7 @@ end
 
   def new
     @recommendation = Recommendation.new
+    @bars = Bar.all
 
     respond_to do |format|
       format.html # new.html.erb

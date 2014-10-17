@@ -6,8 +6,13 @@
     %ul
       - @recommendation.errors.full_messages.each do |msg|
         %li= msg
+
   %div
-    = f.text_field :review
+    = f.collection_select :bar_id, @bars, :id, :name, include_blank: true
+    = link_to "Create new bar", new_bar_path
+  %div
+    = f.label :review, "Recommendation (in 200 characters)"
+    = f.text_area :review, rows: 2
   %div
     = f.label :tag_list, "Tags (separated by commas)"
     = f.text_field :tag_list

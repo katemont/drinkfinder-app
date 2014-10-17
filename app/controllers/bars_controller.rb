@@ -36,7 +36,7 @@ class BarsController < ApplicationController
 
     respond_to do |format|
       if @bar.save
-        format.html { redirect_to @bar, notice: 'Bar was successfully created.' }
+        format.html { redirect_to :back, notice: 'Bar was successfully created.' }
         format.json { render json: @bar, status: :created, location: @bar }
       else
         format.html { render action: "new" }
