@@ -25,7 +25,7 @@ end
   def new
     @recommendation = Recommendation.new
     @bars = Bar.all
-
+    @recommendation.user_id = current_user.id if current_user
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @recommendation }
