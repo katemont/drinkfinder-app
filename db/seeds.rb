@@ -21,7 +21,7 @@ Bar.delete_all
 Bar.create(name:"The Gilbert Scott", location: "The Gilbert Scott, St Pancras Renaissance Hotel, Euston Road, London NW1 2AR")
 Bar.create(name:"The Windmill", location: "6-8 Mill St, W1S 2AZ")
 Bar.create(name:"Euston Tap", location: "190 Euston Rd, London NW1 2EF")
-Bar.create(name:"New St Wine Shop", location: "6-8 Mill St, London W1S 2AZ")
+Bar.create(name:"New St Wine Shop", location: "6c, New St, London EC2M 4TR")
 Bar.create(name:"Royal Oak", location: "44 Tabard St, Borough, London SE1 4JU")
 Bar.create(name:"The Cow", location: "89 Westbourne Park Road, London W2 5QH")
 Bar.create(name:"W Lounge", location: "W London, 10 Wardour Street, London W1D 6QF")
