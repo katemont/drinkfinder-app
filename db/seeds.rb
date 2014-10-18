@@ -13,19 +13,22 @@ User.create(email: "adam@gmail.com", password: "password", role: "user", usernam
 User.create(email: "tony@gmail.com", password: "password", role: "user", username: "Tony", name: "Tony")
 User.create(email: "peter@gmail.com", password: "password",  role: "user", username: "Peter", name: "Peter")
 User.create(email: "geraint@gmail.com", password: "password",  role: "user", username: "Geraint", name: "Geraint")
+User.create(email: "jo@gmail.com", password: "password",  role: "user", username: "Jo", name: "Jo")
+User.create(email: "dave@gmail.com", password: "password",  role: "user", username: "Dave", name: "Dave")
 
 Bar.delete_all
 
-Bar.create(name:"The Gilbert Scott", location: "St Pancras")
-Bar.create(name:"The Windmill", location: "Mayfair")
-Bar.create(name:"Euston Tap", location: "Euston")
-Bar.create(name:"New St Wine Shop", location: "Liverpool St")
-Bar.create(name:"Royal Oak", location: "Tooting")
-Bar.create(name:"The Cow", location: "Westbourne Park")
-Bar.create(name:"W Lounge", location: "Leicester Sq")
+Bar.create(name:"The Gilbert Scott", location: "The Gilbert Scott, St Pancras Renaissance Hotel, Euston Road, London NW1 2AR")
+Bar.create(name:"The Windmill", location: "6-8 Mill St, W1S 2AZ")
+Bar.create(name:"Euston Tap", location: "190 Euston Rd, London NW1 2EF")
+Bar.create(name:"New St Wine Shop", location: "6-8 Mill St, London W1S 2AZ")
+Bar.create(name:"Royal Oak", location: "44 Tabard St, Borough, London SE1 4JU")
+Bar.create(name:"The Cow", location: "89 Westbourne Park Road, London W2 5QH")
+Bar.create(name:"W Lounge", location: "W London, 10 Wardour Street, London W1D 6QF")
 Bar.create(name:"Commercial Tavern", location: "Commercial Road")
-Bar.create(name:"Camberwell Arms", location: "Camberwell")
-Bar.create(name:"Charles Lamb", location: "Camberwell")
+Bar.create(name:"Camberwell Arms", location: "65 Camberwell Church Street, Camberwell, London SE5 8TR")
+Bar.create(name:"Charles Lamb", location: "16 Elia St, London N1 8DE")
+Bar.create(name:"ECC", location: "13a Gerrard St, Chinatown, London W1D 5PS, United Kingdom")
 
 Recommendation.delete_all
 Recommendation.create(review: "Only open til 9pm, but the wines, cheese and charcuterie here are all great value and delivered by charming people – fine wines by the glass and bottle", tag_list: "girolle cheese, oenomatic machines, wine", bar_id: Bar.where(name: "New St Wine Shop").first.id, user_id: User.where(name: "Adam").first.id)
@@ -38,6 +41,7 @@ Recommendation.create(review:"Outstanding beers from all over the world. Utterly
 Recommendation.create(review:"Not just a great drinking pub, the best pies in London. Actually, the best pies anywhere. Can get very busy at lunchtimes.", tag_list: "beer, pie, food", bar_id: Bar.where(name: "The Windmill").first.id, user_id: User.where(name: "Peter").first.id)
 Recommendation.create(review:"Much better than the Booking Office bar before your train leaves and a destination in itself, great drinks, friendly staff, strangely cosy yet towering", tag_list: "big bells, smoked butter popcorn, cocktails, whisky", bar_id: Bar.where(name: "The Gilbert Scott").first.id, user_id: User.where(name: "Adam").first.id)
 Recommendation.create(review:"Pretty pub off a side street near Angel. Well-kept Dark Star ales and a decent selection of wines. Good food and homemade bar snacks. Limited space inside so arrive early. Mixed clientele – locals, suits and trendies.", tag_list: "good food, beer, pub, maps", bar_id: Bar.where(name: "Charles Lamb").first.id, user_id: User.where(name: "Chris").first.id)
+Recommendation.create(review:"Speakeasy style bar in the heart of Chinatown. Somewhat expensive cocktails but worth it. Great to stop in for pre or post dinner drinks. Not pretentious but has a sense of occasion.", tag_list: "cocktails, Chinatown, speakeasy", bar_id: Bar.where(name: "ECC").first.id, user_id: User.where(name: "Jo").first.id)
 
 
 
