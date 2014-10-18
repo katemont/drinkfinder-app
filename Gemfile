@@ -10,6 +10,7 @@ gem 'rmagick'
 gem 'foundation-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'gravtastic'
+gem 'geocoder'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

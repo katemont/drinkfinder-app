@@ -1,6 +1,12 @@
 = @bar.name
 = @bar.location
 
+%h3 Nearby bars
+%ul
+  - for bar in @bar.nearbys(2)
+    %li
+      = link_to bar.name, bar
+      (#{bar.distance.round(2)} miles)
 
 = link_to 'Edit', edit_bar_path(@bar)
 = link_to 'Back', bars_path
