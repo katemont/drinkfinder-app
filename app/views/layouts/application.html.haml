@@ -39,31 +39,29 @@
         %section.middle.tab-bar-section
           %h1.title Drinkfindr
         %section.right-small
-          %a.right-off-canvas-toggle.menu-icon{:href => "#"}
-            %span
+          %span
       %aside.left-off-canvas-menu
         %ul.off-canvas-list
           %li
             %label Menu
-          %li
-            %a{:href => "#"} The Psychohistorians
-          %li
-            %a{:href => "#"} The Psychohistorians
-      / %aside.right-off-canvas-menu
-      /   %ul.off-canvas-list
-      /     %li
-      /       %label Users
-      /     %li
-      /       %a{:href => "#"} Hari Seldon
-      %section.main-section
+            %li
+              %a= link_to 'Recommendations', recommendations_path
+              %a= link_to 'Recommendations', recommendations_path
+              %a= link_to 'Recommendations', recommendations_path
       %a.exit-off-canvas
+
+      
       %header
     %h1 drinkfindr
   %body
     = yield
     = javascript_include_tag "application"
-    :javascript
-      $(document).foundation();
+    
+    %script{:src => "js/vendor/jquery.js"}
+    %script{:src => "js/vendor/fastclick.js"}
+    %script{:src => "js/foundation.min.js"}
+    $(document).foundation();
+   
   %footer
     .container
       \© Kate Montgomery 2014
