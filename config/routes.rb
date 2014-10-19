@@ -6,8 +6,17 @@ DrinkfinderApp::Application.routes.draw do
   root to: "recommendations#index"
   resources :users
   resources :recommendations
+  
   resources :bars
   resources :friendships
+
+  resources :recommendations do
+    collection do 
+      match 'search'=> "recommendations#search" , via: [:get, :post] , as: :search  
+    end
+end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,13 @@
 class RecommendationsController < ApplicationController
 
+  before_filter :search
+
+  def search
+    @recommendation = Recommendation.new
+    @recommendations = @result
+    render "index"
+  end
+
   def index
     if params[:tag]
       @recommendations = Recommendation.tagged_with(params[:tag])
