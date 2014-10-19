@@ -15,7 +15,12 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
-  
+
+  validates :name, presence: true, allow_blank: false
+  validates :name, uniqueness: true
+  validates :email, presence: true, allow_blank: false
+  validates :email, uniqueness: true
+
   include Gravtastic
    gravtastic size: 50, default: "retro", secure: true 
 end
