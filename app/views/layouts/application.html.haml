@@ -42,6 +42,8 @@
     - else
       = link_to "Sign In", new_user_session_path, class: 'sign-in'
       = link_to "Register", new_user_registration_path, class: 'sign-up'
+      %p.notice= notice
+      %p.alert= alert
 
   %header
     %h1 drinkfindr
@@ -52,5 +54,3 @@
     .container
       \© Kate Montgomery 2014
       
-    %p.notice= notice
-    %p.alert= alert
