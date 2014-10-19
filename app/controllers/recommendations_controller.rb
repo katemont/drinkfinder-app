@@ -15,7 +15,7 @@ class RecommendationsController < ApplicationController
       @recommendations = Recommendation.all
       
       @q = Recommendation.search(params[:q])
-      @recommendations = @q.result(distinct: true)
+      @recommendations = @q.result.includes(:user, :location, :name)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recommendations }

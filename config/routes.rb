@@ -6,7 +6,6 @@ DrinkfinderApp::Application.routes.draw do
   root to: "recommendations#index"
   resources :users
   resources :recommendations
-  
   resources :bars
   resources :friendships
 

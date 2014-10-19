@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   def initialize_search
     @q = Recommendation.search(params[:q])
     @result = @q.result
- 
   end
 
 end
