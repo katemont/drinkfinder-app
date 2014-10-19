@@ -11,6 +11,7 @@ gem 'foundation-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'gravtastic'
 gem 'geocoder'
+gem 'cancancan', '~> 1.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
