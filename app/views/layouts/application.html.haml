@@ -4,11 +4,12 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "drinkfinder"
-   
     = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    %script{:src => "https://maps.googleapis.com/maps/api/?libraries=places", :type => "text/javascript"}
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
-    
+
   %nav.top-bar{"data-topbar" => "", :role => "navigation"}
     %ul.title-area
       %li.name
@@ -46,8 +47,12 @@
   %header
     %h1 drinkfindr
   %body
+  #section#map-canvas
+
     = yield
-    = javascript_include_tag "application"
+    :javascript
+      $(document).foundation();
+   
   %footer
     .container
       \© Kate Montgomery 2014
