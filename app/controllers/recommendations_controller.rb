@@ -6,6 +6,8 @@ class RecommendationsController < ApplicationController
     else
       @recommendations = Recommendation.all
       
+      @q = Recommendation.search(params[:q])
+      @recommendations = @q.result(distinct: true)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recommendations }

@@ -2,6 +2,12 @@
 #tag_cloud
   - tag_cloud Recommendation.tag_counts, %w[s m l] do |tag, css_class|
     = link_to tag.name, tag_path(tag.name), class: css_class
+  = search_form_for @q do |f|
+    %p
+      = f.label :review_cont
+      = f.text_field :review_cont
+    %p
+      = f.submit
 %table
   %thead
     %tr
