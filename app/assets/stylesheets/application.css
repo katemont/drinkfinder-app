@@ -19,3 +19,8 @@
  } 
  #map-canvas { height: 50%; width: 100%; 
  } 
+
+ #autocomplete {
+   height: 25px;
+   width: 100%;
+ }
