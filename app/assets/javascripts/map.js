@@ -1,3 +1,16 @@
+function detectBrowser() {
+  var useragent = navigator.userAgent;
+  var mapdiv = document.getElementById("map-canvas");
+
+  if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1 ) {
+    mapdiv.style.width = '100%';
+    mapdiv.style.height = '100%';
+  } else {
+    mapdiv.style.width = '600px';
+    mapdiv.style.height = '800px';
+  }
+}
+
 var myMap = myMap || {},
 map = {},
 marker = {};
@@ -57,6 +70,7 @@ myMap.initialize = function() {
         alert("Your browser doesn't support geolocation");
       };
     });
+
   var autocomplete = new google.maps.places.Autocomplete($('#autocomplete')[0]);
   autocomplete.bindTo('bounds',map);
 
