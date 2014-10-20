@@ -50,15 +50,14 @@
   %body
 
   .row
-    .large-10.columns
+    .large-12.columns
       .row.collapse
-        .small-6.columns
-          %input#autocomplete{:type => "text"}
+        %input#autocomplete{:type => "text"}
           .small-2.columns
-            %a.button.postfix{:href => "#"} Go
+            %a.button{:href => "#"} Go!
   
-  %button#locate{:class => "radius"} Where the heckins are you?
   = yield
+  %button#locate{:class => "radius"} Where the heckins are you?
   #section#map-canvas
    
     %footer
