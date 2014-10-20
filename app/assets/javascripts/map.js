@@ -1,7 +1,9 @@
 var myMap = myMap || {},
     map = {},
     marker = {};
-
+    popup = {}
+   
+   
 myMap.initialize = function() {
 
     var mapOptions = {
@@ -21,8 +23,13 @@ myMap.initialize = function() {
 
     marker = new google.maps.Marker(markerOptions);
 
+    popup = new google.maps.InfoWindow(infoWindowOptions);
+
+    google.maps.event.addListener(marker, 'click', function(){
+      popup.open(map, marker);
+    });
     $('#locate').on('click', function(){
-      console.log('click');
+      // console.log('click');
       $(this).text('loading...');
 
       if (navigator.geolocation){
@@ -37,9 +44,11 @@ myMap.initialize = function() {
 //   map.setCenter(marker.getPosition());
 // }, 5000);
  
- 
+   var infoWindowOptions = {
+   content: 'You.',
+ };
 
- function successCallback(position){
+   function successCallback(position){
    console.log(position);
  
    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
