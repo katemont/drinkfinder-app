@@ -88,6 +88,4 @@ function successCallback(position){
    alert('Could not retrieve your location, please try again');
  };
 
-
-
  google.maps.event.addDomListener(window, 'load', myMap.initialize);
