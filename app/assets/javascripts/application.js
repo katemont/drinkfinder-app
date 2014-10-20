@@ -12,13 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require vendor/modernizr
-//= require vendor/fastclick
-//= require foundation
 //= require map.js
+//= require vendor/modernizr
+//= require foundation
 //= require_tree .
 
-$(function(){ 
-  $(document).foundation(); 
-});
-// console.log($(document))
+$(function(){ $(document).foundation(); });
