@@ -49,15 +49,10 @@
     %h1 drinkfindr
   %body
 
-  .row
-    .large-12.columns
-      .row.collapse
-        %input#autocomplete{:type => "text"}
-          .small-2.columns
-            %a.button{:class => "radius"} Go!
-  
   = yield
-  %button#locate{:class => "radius"} Where the heckins are you?
+  %button#locate{:class => "radius"} Use my location
+  %input#autocomplete{:placeholder => "Search for a bar", :type => "text",:size => "40"}
+
   #section#map-canvas
    
     %footer

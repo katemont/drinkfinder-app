@@ -29,6 +29,9 @@ Bar.create(name:"Commercial Tavern", location: "Commercial Road")
 Bar.create(name:"Camberwell Arms", location: "65 Camberwell Church Street, Camberwell, London SE5 8TR")
 Bar.create(name:"Charles Lamb", location: "16 Elia St, London N1 8DE")
 Bar.create(name:"ECC", location: "13a Gerrard St, Chinatown, London W1D 5PS, United Kingdom")
+Bar.create(name:"The Brown Dog", location: "28 Cross St, London SW13 0AP")
+Bar.create(name:"Aces and Eights Saloon Bar", location: "156-158 Fortress Road, London, NW5 2HP")
+Bar.create(name:"Craft Beer Co Brixton", location: "11-13 Brixton Station Road, London, SW9 8PA")
 
 Recommendation.delete_all
 Recommendation.create(review: "Only open til 9pm, but the wines, cheese and charcuterie here are all great value and delivered by charming people – fine wines by the glass and bottle", tag_list: "girolle cheese, oenomatic machines, wine", bar_id: Bar.where(name: "New St Wine Shop").first.id, user_id: User.where(name: "Adam").first.id)
@@ -42,11 +45,8 @@ Recommendation.create(review:"Not just a great drinking pub, the best pies in Lo
 Recommendation.create(review:"Much better than the Booking Office bar before your train leaves and a destination in itself, great drinks, friendly staff, strangely cosy yet towering", tag_list: "big bells, smoked butter popcorn, cocktails, whisky", bar_id: Bar.where(name: "The Gilbert Scott").first.id, user_id: User.where(name: "Adam").first.id)
 Recommendation.create(review:"Pretty pub off a side street near Angel. Well-kept Dark Star ales and a decent selection of wines. Good food and homemade bar snacks. Limited space inside so arrive early. Mixed clientele – locals, suits and trendies.", tag_list: "good food, beer, pub, maps", bar_id: Bar.where(name: "Charles Lamb").first.id, user_id: User.where(name: "Chris").first.id)
 Recommendation.create(review:"Speakeasy style bar in the heart of Chinatown. Somewhat expensive cocktails but worth it. Great to stop in for pre or post dinner drinks. Not pretentious but has a sense of occasion.", tag_list: "cocktails, Chinatown, speakeasy", bar_id: Bar.where(name: "ECC").first.id, user_id: User.where(name: "Jo").first.id)
-
-
-
-
-
-
+Recommendation.create(review:"A hidden gem. Our old local, this place has a welcoming, warm feel at any time of year. Tasty (if costly) food, a couple of cask ales, good wine, great staff. Oh, and copper lampshades.", tag_list: "cosy, cask ale", bar_id: Bar.where(name: "The Brown Dog").first.id, user_id: User.where(name: "Geraint").first.id)
+Recommendation.create(review:"An awe-inspiring beer selection, stumbling distance from the Victoria line. A guaranteed Friday night blast (if you can find a seat). Yes, there is an upstairs.", tag_list: "craft beer", bar_id: Bar.where(name: "Craft Beer Co Brixton").first.id, user_id: User.where(name: "Geraint").first.id)
+Recommendation.create(review:"Beer, whisky, pizza, rock music and a late licence. Job done.", tag_list: "pizza, rock music, late licence", bar_id: Bar.where(name: "Aces and Eights Saloon Bar").first.id, user_id: User.where(name: "Chris").first.id)
 
 
