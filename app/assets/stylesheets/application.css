@@ -13,4 +13,14 @@
 
  *= require_tree .
  */
+
  
+ body { height: 100%; 
+ } 
+ #map-canvas { height: 50%; width: 100%; 
+ } 
+
+ #autocomplete {
+   height: 25px;
+   width: 100%;
+ }
