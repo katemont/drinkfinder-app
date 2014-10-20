@@ -2,14 +2,33 @@ var myMap = myMap || {},
 map = {},
 marker = {};
 popup = {}
-
+style = [
+    {"stylers": [
+            {"saturation": -100},
+            {"gamma": 0.8},
+            {"lightness": 4},
+            {"visibility": "on"}
+        ]
+    },
+    {"featureType": "landscape.natural",
+        "stylers": [
+            {"visibility": "on"},
+            {"color": "#5dff00"},
+            {"gamma": 4.97},
+            {"lightness": -5},
+            {"saturation": 100
+            }
+        ]
+    }
+]
 
 myMap.initialize = function() {
 
   var mapOptions = {
     center: { lat:  51.52, lng: -0.115},     
     zoom: 14,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    styles: style
   };
 
   var mapCanvas = $('#map-canvas')[0];
