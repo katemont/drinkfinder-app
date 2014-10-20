@@ -58,7 +58,6 @@ myMap.initialize = function() {
 
     popup.setContent('<div>'+ place.name +'</div>');
 
-
     popup.open(map, marker);
 
   });
