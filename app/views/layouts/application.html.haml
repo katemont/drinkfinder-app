@@ -4,40 +4,66 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "drinkfinder"
-    .login
-      - if user_signed_in? && current_user.persisted?
-        #{link_to "What up #{current_user.name}?", user_path(current_user)} #{link_to "Log out", destroy_user_session_path, method: :delete, class: 'sign-up'}
-      - else
-        = link_to "Sign In", new_user_session_path, class: 'sign-in'
-        = link_to "Register", new_user_registration_path, class: 'sign-up'
-
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "vendor/modernizr"
+    %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
+    = javascript_include_tag "application"
     = csrf_meta_tags
-  %nav
-  %ul.side-nav
-    %li
-      %a= link_to 'Recommendations', recommendations_path
-    %li
-      %a= link_to 'Users', users_path
-    %li
-      %a= link_to 'New recommendation', new_recommendation_path
-    %li
-      %a= link_to 'Bar index', bars_path
-    %li
-      / %a{:href => "#"} Trending
-    %li
-      / %a= link_to 'Profile', current_user_path
-    %li
-      / %a{:href => "#"} Surprise me
+
+  %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+    %ul.title-area
+      %li.name
+        %h1
+          %a= link_to 'DRINKFINDR', root_path 
+      %li.toggle-topbar.menu-icon
+        %a{:href => "#"}
+          %span Menu
+    %section.top-bar-section
+      / Right Nav Section
+      %ul.right
+        %li.active
+          %a= link_to 'Bar index', bars_path
+        %li
+          %a= link_to 'New recommendation', new_recommendation_path
+        %li.has-dropdown
+          %a{:href => "#"} Options
+          %ul.dropdown
+            %li
+              %a= link_to 'Users', users_path
+              %a{:href => "#"} First link in dropdown
+      / Left Nav Section
+      %ul.left
+        %li
+          %a= link_to 'Recommendations', recommendations_path
+        %li
+          %a= link_to 'Trending', new_recommendation_path
+  .login
+    - if user_signed_in? && current_user.persisted?
+      #{link_to "What up #{current_user.name}?", user_path(current_user)} #{link_to "Log out", destroy_user_session_path, method: :delete, class: 'sign-up'}
+    - else
+      = link_to "Sign In", new_user_session_path, class: 'sign-in'
+      = link_to "Register", new_user_registration_path, class: 'sign-up'
+      %p.notice= notice
+      %p.alert= alert
+
   %header
     %h1 drinkfindr
   %body
-    = yield
-    = javascript_include_tag "application"
-  %footer
-    .container
-      \© Kate Montgomery 2014
-      
-    %p.notice= notice
-    %p.alert= alert
+
+  .row
+    .large-12.columns
+      .row.collapse
+        %input#autocomplete{:type => "text"}
+          .small-2.columns
+            %a.button{:class => "radius"} Go!
+  
+  = yield
+  %button#locate{:class => "radius"} Where the heckins are you?
+  #section#map-canvas
+   
+    %footer
+      .container
+        \© Kate Montgomery 2014
+        
+      %p.notice= notice
+      %p.alert= alert
+

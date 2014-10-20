@@ -8,4 +8,7 @@ class Recommendation < ActiveRecord::Base
 
   acts_as_taggable
   
+  validates :user_id, presence: true
+  validates :review, presence: true
+  validates_length_of :review, maximum: 200
 end
