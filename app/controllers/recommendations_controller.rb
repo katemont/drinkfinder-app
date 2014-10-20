@@ -5,7 +5,7 @@ class RecommendationsController < ApplicationController
       @recommendations = Recommendation.tagged_with(params[:tag])
     else
       @recommendations = Recommendation.all
-      
+      # @recommendations = Recommendation.order("created_at DESC").limit(5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recommendations }
@@ -15,7 +15,6 @@ end
 
   def show
     @recommendation = Recommendation.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recommendation }
