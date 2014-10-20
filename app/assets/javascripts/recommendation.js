@@ -1,3 +1,5 @@
+// Character counter needs amending
+
 // $().ready(function(e){
 
 //   var characterCount = 0;

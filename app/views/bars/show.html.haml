@@ -1,7 +1,9 @@
 = @bar.name
 = @bar.location
 
-= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&markers=#{@bar.latitude}%2C#{@bar.longitude}&style=feature:landscape.natural|saturation:-100|hue:0x5dff00|gamma:4.97&style=element:labels|visibility:on&style=feature:poi|hue:0x0800ff|lightness:-5&style=feature:administrative|element:geometry|visibility:off"
+/ = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&markers=#{@bar.latitude}%2C#{@bar.longitude}&style=feature:landscape.natural|element:geometry.fill|visibility:on|color:0xe0efef&style=feature:poi|element:geometry.fill|visibility:on|hue:0x1900ff|color:0xc0e8e8&style=feature:landscape.man_made|element:geometry.fill&style=feature:road|element:geometry|lightness:100|visibility:simplified&style=feature:road|element:labels|visibility:on&style=feature:water|color:0x7dcdcd&style=feature:transit.line|element:geometry|visibility:on|lightness:700"
+
+= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&markers=#{@bar.latitude}%2C#{@bar.longitude}&style=saturation:-100|gamma:0.8|lightness:4|visibility:on|&style=feature:landscape.natural|visibility:on|color:0x5dff00|gamma:4.97|lightness:-5|saturation:100"
 
 %h3 Nearby bars
 %ul
