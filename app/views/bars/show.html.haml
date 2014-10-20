@@ -1,7 +1,7 @@
 = @bar.name
 = @bar.location
 
-= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&markers=#{@bar.latitude}%2C#{@bar.longitude}"
+= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=18&markers=#{@bar.latitude}%2C#{@bar.longitude}&style=feature:landscape.natural|saturation:-100|hue:0x5dff00|gamma:4.97&style=element:labels|visibility:on&style=feature:poi|hue:0x0800ff|lightness:-5&style=feature:administrative|element:geometry|visibility:off"
 
 %h3 Nearby bars
 %ul
