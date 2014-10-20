@@ -4,8 +4,6 @@ class Recommendation < ActiveRecord::Base
   belongs_to :user
   belongs_to :bar
 
-  accepts_nested_attributes_for :bar
-
   acts_as_taggable
   
   validates :user_id, presence: true

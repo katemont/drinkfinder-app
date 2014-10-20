@@ -5,6 +5,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "drinkfinder"
     = stylesheet_link_tag    "application"
+    %link{:href => "http://fonts.googleapis.com/css?family=Fugaz+One", :rel => "stylesheet", :type => "text/css"}
     %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -46,7 +47,7 @@
       %p.alert= alert
 
   %header
-    %h1 drinkfindr
+  
   %body
 
   .row

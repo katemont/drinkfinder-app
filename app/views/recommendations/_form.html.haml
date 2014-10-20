@@ -11,7 +11,11 @@
     = f.collection_select :bar_id, @bars, :id, :name, include_blank: true
   %div
     = link_to "Create new bar", new_bar_path
-
+  
+  %div
+    = f.fields_for :bar_id do |builder|
+      = render 'bar_fields', f: builder
+   
   %div
     = f.label :review, "Recommendation"
     = f.text_field :review, title: "Your recommendation in 200 characters or fewer", data: {tooltip: true}

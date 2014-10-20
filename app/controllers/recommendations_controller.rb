@@ -26,6 +26,7 @@ end
     @recommendation = Recommendation.new
     @bars = Bar.all
     @bar = Bar.create
+  
     @recommendation.user_id = current_user.id if current_user
     respond_to do |format|
       format.html # new.html.erb
