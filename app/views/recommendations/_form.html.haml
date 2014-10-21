@@ -6,8 +6,12 @@
     %ul
       - @recommendation.errors.full_messages.each do |msg|
         %li= msg
+  %div
+    = f.label :bar_id, "Search for a bar"
+    = f.text_field :bar_id, id: "autocomplete" 
 
   %div
+    = f.label :bar_id, "Select a bar"
     = f.collection_select :bar_id, @bars, :id, :name, include_blank: true
   %div
     = link_to "Create new bar", new_bar_path

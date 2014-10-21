@@ -41,7 +41,8 @@ myMap.initialize = function() {
     center: { lat:  51.52, lng: -0.115},     
     zoom: 14,
     mapTypeId:google.maps.MapTypeId.ROADMAP,
-    styles: style
+    styles: style,
+    scrollwheel: false
   };
 
   var mapCanvas = $('#map-canvas')[0];

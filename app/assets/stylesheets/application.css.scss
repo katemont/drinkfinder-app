@@ -14,13 +14,33 @@
  *= require_tree .
  */
 
- 
- body { height: 100%; 
- } 
- #map-canvas { height: 50%; width: 100%; 
- } 
+ $primary-color: #2bcba0;
 
- #autocomplete {
-   height: 25px;
-   width: 100%;
+ body { 
+  height: 100%; 
+ 
+  header {
+    background: #333333;
+    width: 100%;
+  }
+
+  .notice,
+  .alert {
+    margin: 0;
+  }
+
+  #map-canvas { 
+    height: 50%; 
+    width: 100%; 
+  } 
+
+  main {
+    padding: 1em 0;
+  }
+
+  footer {
+    min-height: 150px;
+    background: $primary-color;
+    padding: 1em 0;
+  }
  }

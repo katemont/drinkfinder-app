@@ -8,59 +8,60 @@
     %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
     = javascript_include_tag "application"
     = csrf_meta_tags
-
-  %nav.top-bar{"data-topbar" => "", :role => "navigation"}
-    %ul.title-area
-      %li.name
-        %h1
-          %a= link_to 'DRINKFINDR', root_path 
-      %li.toggle-topbar.menu-icon
-        %a{:href => "#"}
-          %span Menu
-    %section.top-bar-section
-      / Right Nav Section
-      %ul.right
-        %li.active
-          %a= link_to 'Bar index', bars_path
-        %li
-          %a= link_to 'New recommendation', new_recommendation_path
-        %li.has-dropdown
-          %a{:href => "#"} Options
-          %ul.dropdown
-            %li
-              %a= link_to 'Users', users_path
-              %a{:href => "#"} First link in dropdown
-      / Left Nav Section
-      %ul.left
-        %li
-          %a= link_to 'Recommendations', recommendations_path
-        %li
-          %a= link_to 'Trending', new_recommendation_path
-  .login
-    - if user_signed_in? && current_user.persisted?
-      #{link_to "What up #{current_user.name}?", user_path(current_user)} #{link_to "Log out", destroy_user_session_path, method: :delete, class: 'sign-up'}
-    - else
-      = link_to "Sign In", new_user_session_path, class: 'sign-in'
-      = link_to "Register", new_user_registration_path, class: 'sign-up'
-      %p.notice= notice
-      %p.alert= alert
-
-  %header
-
+  
   %body
-  #tag_cloud
-    - tag_cloud Recommendation.tag_counts, %w[s m l] do |tag, css_class|
-      = link_to tag.name, tag_path(tag.name), class: css_class
-  = yield
-  %button#locate{:class => "radius"} Use my location
-  %input#autocomplete{:placeholder => "Search for a bar", :type => "text",:size => "40"}
-
-  #section#map-canvas
+    %header
+      %nav.top-bar.row{"data-topbar" => "", :role => "navigation"}
+        %ul.title-area
+          %li.name
+            %h1
+              %a= link_to 'DRINKFINDR', root_path 
+          %li.toggle-topbar.menu-icon
+            %a{:href => "#"}
+              %span Menu
+        %section.top-bar-section
+          / Right Nav Section
+          %ul.right
+            %li.active
+              = link_to 'Bar index', bars_path
+            %li
+              = link_to 'New recommendation', new_recommendation_path
+            %li.has-dropdown
+              %a{:href => "#"} Options
+              %ul.dropdown
+                %li
+                  = link_to 'Users', users_path
+                  %a{:href => "#"} First link in dropdown
+            - if user_signed_in? && current_user.persisted?
+              %li= link_to "What up #{current_user.name}?", user_path(current_user) 
+              %li= link_to "Log out", destroy_user_session_path, method: :delete, class: 'sign-up'
+            - else
+              %li= link_to "Sign In", new_user_session_path, class: 'sign-in'
+              %li= link_to "Register", new_user_registration_path, class: 'sign-up'
+             
+          / Left Nav Section
+          %ul.left
+            %li= link_to 'Recommendations', recommendations_path
+            %li= link_to 'Trending', new_recommendation_path
    
-    %footer
-      .container
-        \© Kate Montgomery 2014
-        
+    .row
       %p.notice= notice
       %p.alert= alert
+ 
+    - if params[:controller] == "recommendations" && params[:action]== "index"
+      #tag_cloud.row
+        - tag_cloud Recommendation.tag_counts, %w[s m l] do |tag, css_class|
+          = link_to tag.name, tag_path(tag.name), class: css_class
+      
+    - if params[:controller] == "recommendations" && params[:action] == "new"
+      #section#map-canvas
+    
+    %main
+      .row
+        = yield
+
+    %footer
+      .row
+        \© Kate Montgomery 2014
+      
 
