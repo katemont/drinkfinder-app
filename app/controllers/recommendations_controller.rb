@@ -38,7 +38,7 @@ end
 
   def create
     @bar = Bar.find_or_create_by_location_and_name(location: params[:autocomplete], name: params[:name])
-    @recommendation = current_user.recommendations.new(bar_id: @bar.id, review: params[:recommendation][:review], tag_list: params[:recommendation][:tags])
+    @recommendation = current_user.recommendations.new(bar_id: @bar.id, review: params[:recommendation][:review], tag_list: params[:recommendation][:tag_list])
 
     respond_to do |format|
       if @recommendation.save
