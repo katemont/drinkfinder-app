@@ -81,19 +81,27 @@ myMap.initialize = function() {
 
     var place = autocomplete.getPlace();
 
-    if (place.geometry.viewport) {
-      map.fitBounds(place.geometry.viewport); 
+    if (typeof place !== undefined) {
+      if (place.geometry.viewport) {
+        map.fitBounds(place.geometry.viewport); 
+      } else {
+        map.setCenter(place.geometry.location);
+        map.setZoom(17);
+      };
+
+      marker.setPosition(place.geometry.location);
+      
+      popup.setContent('<div>'+ place.name +'</div>');
+
+      popup.open(map, marker);
+      
+      console.log(place.name)
+      $('input#name').val(place.name);
+
     } else {
-      map.setCenter(place.geometry.location);
-      map.setZoom(17);
-    };
-
-    marker.setPosition(place.geometry.location);
-
-    popup.setContent('<div>'+ place.name +'</div>');
-
-    popup.open(map, marker);
-
+      console.log("Can't find place");
+    }
+    
   });
 }
 

@@ -28,19 +28,27 @@
   .alert {
     margin: 0;
   }
-
+  
   #map-canvas { 
     height: 50%; 
     width: 100%; 
   } 
 
+  @media only screen and (min-width: 9999px) {
+    .top-bar {
+      background: #333333;
+      *zoom: 1;
+      overflow: visible; }
+  }
+  
   main {
     padding: 1em 0;
   }
 
+
   footer {
     min-height: 150px;
-    background: $primary-color;
+    background: #c0c0c0;
     padding: 1em 0;
   }
  }

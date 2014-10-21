@@ -10,17 +10,12 @@ class Recommendation < ActiveRecord::Base
   validates :review, presence: true
   validates_length_of :review, maximum: 200
 
-  validate :is_there_a_bar?
-  before_create :find_or_create_bar
+  # validate :is_there_a_bar?
 
   # Custom validates error
-  def is_there_a_bar?
-      # validates :bar_id, presence: true, uniqueness: {message: "there's no bar"}
-      errors.add(:base, "Sorry, there's no bar") unless bar_id
-  end
-
-  def find_or_create_bar
-    Bar.find_or_create_by_location(bar_id)
-  end
+  # def is_there_a_bar?
+  #     # validates :bar_id, presence: true, uniqueness: {message: "there's no bar"}
+  #     errors.add(:base, "Sorry, there's no bar") unless bar_id
+  # end
 
 end

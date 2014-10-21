@@ -22,16 +22,15 @@
         %section.top-bar-section
           / Right Nav Section
           %ul.right
-            %li.active
-              = link_to 'Bar index', bars_path
             %li
-              = link_to 'New recommendation', new_recommendation_path
-            %li.has-dropdown
-              %a{:href => "#"} Options
+              = link_to 'Make a recommendation', new_recommendation_path
+            %li.has-dropdown.active
+              %a{:href => "#"} Explore
               %ul.dropdown
                 %li
-                  = link_to 'Users', users_path
-                  %a{:href => "#"} First link in dropdown
+                  = link_to 'Find friends', users_path
+                  = link_to 'Bar index', bars_path
+            / add recent recommendations here?
             - if user_signed_in? && current_user.persisted?
               %li= link_to "What up #{current_user.name}?", user_path(current_user) 
               %li= link_to "Log out", destroy_user_session_path, method: :delete, class: 'sign-up'
@@ -42,7 +41,6 @@
           / Left Nav Section
           %ul.left
             %li= link_to 'Recommendations', recommendations_path
-            %li= link_to 'Trending', new_recommendation_path
    
     .row
       %p.notice= notice
@@ -63,5 +61,7 @@
     %footer
       .row
         \© Kate Montgomery 2014
+      .row
+        kate@drinkfindr.com
       
 
