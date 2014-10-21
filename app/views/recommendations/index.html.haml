@@ -20,16 +20,28 @@
         %td= link_to 'Edit', edit_recommendation_path(recommendation)
         %td= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
 
-        %dl.accordion{"data-accordion" => ""}
-          %dd.accordion-navigation
-            %a{:href => "#panel"} 
-              = recommendation.bar.try :name
-              #panel.content
-                = recommendation.review
-                = raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-                = recommendation.user.try :name
-                = link_to 'Show', recommendation
-                = link_to 'Edit', edit_recommendation_path(recommendation)
-                = link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+        / %dl.accordion{"data-accordion" => ""}
+        /   %dd.accordion-navigation
+        /     %a{:href => "#panel"} 
+        /       = recommendation.bar.try :name
+        /       #panel.content
+        /         = recommendation.review
+        /         = raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+        /         = recommendation.user.try :name
+        /         = link_to 'Show', recommendation
+        /         = link_to 'Edit', edit_recommendation_path(recommendation)
+        /         = link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
 
-   
+        %a{"data-reveal-id" => "myModal", :href => "#"} 
+          = recommendation.bar.try :name
+        #myModal.reveal-modal{"data-reveal" => ""}
+          = recommendation.bar.try :name
+          = recommendation.review
+          / = raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+          Recommended by
+          = recommendation.user.try :name
+          = link_to 'Show', recommendation
+          = link_to 'Edit', edit_recommendation_path(recommendation)
+          = link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+          %a.close-reveal-modal ×
+       
