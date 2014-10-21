@@ -7,15 +7,16 @@
         %th Review
         %th Tags
         %th Added
+    %tbody
       %tr
         %td= @recommendation.bar.try :name
         %td= @recommendation.bar.try :location
         %td= @recommendation.review
         %td= raw @recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-        %td= "#{time_ago_in_words(@recommendation.created_at)} ago"
+        %td= "#{time_ago_in_words(@recommendation.created_at)} ago by #{(@recommendation.user.try :name)}"
 
-  = link_to 'Edit', edit_recommendation_path(@recommendation)
-  = link_to 'Back', recommendations_path
+  %p= link_to 'Edit', edit_recommendation_path(@recommendation)
+  %p= link_to 'Back', recommendations_path
 
   / .button-bar
   /   %ul.button-group{:class => "radius round"}
