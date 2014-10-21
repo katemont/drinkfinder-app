@@ -13,9 +13,13 @@ class RecommendationsController < ApplicationController
       @recommendations = Recommendation.tagged_with(params[:tag])
     else
       @recommendations = Recommendation.all
+<<<<<<< HEAD
       
       @q = Recommendation.search(params[:q])
       @recommendations = @q.result.includes(:user, :location, :name)
+=======
+      # @recommendations = Recommendation.order("created_at DESC").limit(5)
+>>>>>>> master
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recommendations }
@@ -25,7 +29,6 @@ end
 
   def show
     @recommendation = Recommendation.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recommendation }
@@ -35,6 +38,7 @@ end
   def new
     @recommendation = Recommendation.new
     @bars = Bar.all
+  
     @recommendation.user_id = current_user.id if current_user
     respond_to do |format|
       format.html # new.html.erb
@@ -47,8 +51,8 @@ end
   end
 
   def create
-    @recommendation = Recommendation.new(params[:recommendation])
-    @recommendation.user = current_user
+    @bar = Bar.find_or_create_by_location_and_name(location: params[:autocomplete], name: params[:name])
+    @recommendation = current_user.recommendations.new(bar_id: @bar.id, review: params[:recommendation][:review], tag_list: params[:recommendation][:tag_list])
 
     respond_to do |format|
       if @recommendation.save

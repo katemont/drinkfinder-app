@@ -43,6 +43,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    cancancan (1.9.2)
     capybara (2.4.3)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -230,6 +231,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   better_errors
   binding_of_caller
+  cancancan (~> 1.9)
   capybara
   carrierwave (= 0.9.0)
   coffee-rails (~> 3.2.1)

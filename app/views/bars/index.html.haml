@@ -7,13 +7,13 @@
       %th 
       %th 
       %th
+  %tbody
     - @bars.each do |bar|
       %tr
-        %td= bar.name
+        %td= link_to bar.name, bar
         %td= bar.location
-        %td= bar.longitude
-        %td= bar.latitude
+        / %td= bar.longitude
+        / %td= bar.latitude
 
-        %td= link_to 'Show', bar
         %td= link_to 'Edit', edit_bar_path(bar)
         %td= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' }

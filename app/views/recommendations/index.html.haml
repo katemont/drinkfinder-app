@@ -1,18 +1,24 @@
+<<<<<<< HEAD
 %h2 Recommendations
 #tag_cloud
   - tag_cloud Recommendation.tag_counts, %w[s m l] do |tag, css_class|
     = link_to tag.name, tag_path(tag.name), class: css_class
 
+=======
+%h3 Recommendations
+>>>>>>> master
 %table
   %thead
     %tr
       %th Bar
       %th Review
       %th Tags
-      %th User
+      %th Added by
+      %th 
+      %th
+      %th 
       %thead 
-      %th
-      %th
+  %tbody
     - @recommendations.each do |recommendation|
       %tr
         %td= recommendation.bar.try :name

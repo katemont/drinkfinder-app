@@ -23,6 +23,8 @@
   %ul
     - for user in @user.inverse_friends
       %li= h user.username
+  %b User since:
+  %p= "#{time_ago_in_words(@user.created_at)} ago"
 
 = link_to 'Edit', edit_user_path(@user)
 = link_to 'Back', users_path

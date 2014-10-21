@@ -13,4 +13,43 @@
 
  *= require_tree .
  */
+
+ $primary-color: #2bcba0;
+
+ body { 
+  height: 100%; 
  
+  header {
+    background: #333333;
+    width: 100%;
+  }
+
+  .notice,
+  .alert {
+    margin: 0;
+  }
+  
+  #map-canvas { 
+    height: 50%; 
+    width: 100%; 
+  } 
+
+  @media only screen and (min-width: 9999px) {
+    .top-bar {
+      background: #333333;
+      *zoom: 1;
+      overflow: visible; }
+  }
+  
+  main {
+    padding: 1em 0;
+  }
+
+  footer {
+    min-height: 100px;
+    background: #c0c0c0;
+    padding: 1em 0;
+    bottom: 0;
+    width: 100%;
+  }
+ }

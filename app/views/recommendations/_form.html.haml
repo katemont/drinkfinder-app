@@ -8,8 +8,11 @@
         %li= msg
 
   %div
-    = f.collection_select :bar_id, @bars, :id, :name, include_blank: true
-    = link_to "Create new bar", new_bar_path
+    = label_tag "Search for a bar"
+    = text_field_tag "autocomplete"
+  %div
+    = label_tag "Name"
+    = text_field_tag "name"
   %div
     = f.label :review, "Recommendation"
     = f.text_field :review, title: "Your recommendation in 200 characters or fewer", data: {tooltip: true}
@@ -18,4 +21,4 @@
     = f.text_field :tag_list, title: "Separate your tags with commas", data: {tooltip: true}
   
   .actions
-    = f.submit
+    = f.submit :class => "button radius" 
