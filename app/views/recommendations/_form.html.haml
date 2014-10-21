@@ -11,12 +11,6 @@
     = f.text_field :bar_id, id: "autocomplete" 
 
   %div
-    = f.label :bar_id, "Select a bar"
-    = f.collection_select :bar_id, @bars, :id, :name, include_blank: true
-  %div
-    = link_to "Create new bar", new_bar_path
-
-  %div
     = f.label :review, "Recommendation"
     = f.text_field :review, title: "Your recommendation in 200 characters or fewer", data: {tooltip: true}
   %div

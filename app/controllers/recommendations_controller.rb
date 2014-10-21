@@ -36,6 +36,7 @@ end
   end
 
   def create
+binding.pry
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user = current_user
 
