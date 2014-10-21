@@ -18,7 +18,7 @@ User.create(email: "dave@gmail.com", password: "password",  role: "user", userna
 
 Bar.delete_all
 
-Bar.create(name:"The Gilbert Scott", location: "The Gilbert Scott, St Pancras Renaissance Hotel, Euston Road, London NW1 2AR")
+Bar.create(name:"The Gilbert Scott", location: "St Pancras Renaissance Hotel, Euston Road, London NW1 2AR")
 Bar.create(name:"The Windmill", location: "6-8 Mill St, W1S 2AZ")
 Bar.create(name:"Euston Tap", location: "190 Euston Rd, London NW1 2EF")
 Bar.create(name:"New St Wine Shop", location: "6c, New St, London EC2M 4TR")

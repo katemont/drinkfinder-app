@@ -29,7 +29,7 @@
               %ul.dropdown
                 %li
                   = link_to 'Find friends', users_path
-                  = link_to 'Bar index', bars_path
+                  = link_to 'Find bars', bars_path
             / add recent recommendations here?
             - if user_signed_in? && current_user.persisted?
               %li= link_to "What up #{current_user.name}?", user_path(current_user) 
