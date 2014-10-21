@@ -20,6 +20,8 @@ class BarsController < ApplicationController
 
   def new
     @bar = Bar.new
+    # @bar = Bar.find_or_create_by(params[:name, :location, :longitude, :latitude])
+    @bar = Bar.find_or_create_by_name_and_longitude_and_latitude(:name, :longitude, :latitude)
 
     respond_to do |format|
       format.html # new.html.erb

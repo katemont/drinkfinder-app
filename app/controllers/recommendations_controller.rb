@@ -24,6 +24,7 @@ end
   def new
     @recommendation = Recommendation.new
     @bars = Bar.all
+  
     @recommendation.user_id = current_user.id if current_user
     respond_to do |format|
       format.html # new.html.erb
@@ -36,9 +37,14 @@ end
   end
 
   def create
-binding.pry
+    @bar = params[:recommendation][:bar_id]
+    @bar_object = Bar.find_or_create_by_location(@bar_id)
+    # raise
+    Recommendation.new(bar_id: @bar_object.id, review: "review")
+    raise
     @recommendation = Recommendation.new(params[:recommendation])
     @recommendation.user = current_user
+    @recommendation.bar_id = @bar
 
     respond_to do |format|
       if @recommendation.save

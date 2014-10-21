@@ -79,8 +79,8 @@ myMap.initialize = function() {
 
     popup.close(); 
 
-    var place = autocomplete.getPlace(); 
- 
+    var place = autocomplete.getPlace();
+
     if (place.geometry.viewport) {
       map.fitBounds(place.geometry.viewport); 
     } else {
