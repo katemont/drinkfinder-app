@@ -12,13 +12,13 @@
   %b Email:
   = @user.email
 %p
-  %b Recommendations:
+  %b Your recommendations:
+
   - @user.recommendations.each do |recommendation|
     %tr
       %td= recommendation.bar.try :name
       %td= recommendation.try :review
 
-%p
   %b Friends:
   %ul
     - for friendship in @user.friendships
@@ -33,5 +33,5 @@
   %b User since:
   %p= "#{time_ago_in_words(@user.created_at)} ago"
 
-= link_to 'Edit', edit_user_path(@user)
+= link_to 'Edit your profile', edit_user_path(@user)
 = link_to 'Back', users_path

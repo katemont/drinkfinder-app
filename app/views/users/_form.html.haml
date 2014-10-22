@@ -17,8 +17,14 @@
     = f.label :email
     = f.text_field :email
   %div
+    = f.label :password
+    = f.text_field :password
+  %div
+    = f.label :password_confirmation
+    = f.text_field :password_confirmation
+  %div
     = f.label :profile_pic
-    = f.file_field :profile_pic
+    = f.file_field :profile_pic, title: "Upload a pic if you like", data: {tooltip: true}
   .submit_form_button
     = f.submit :class => "button radius" 
  
