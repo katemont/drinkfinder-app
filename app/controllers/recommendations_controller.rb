@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def index
     if params[:tag]
       @recommendations = Recommendation.tagged_with(params[:tag])

@@ -46,6 +46,8 @@
   
   tr:hover {
            background-color: #dddddd;
+           transform:scale(1.05,1.05);
+           transition:All 0.7s ease;
          }
 
 

@@ -1,5 +1,6 @@
 class BarsController < ApplicationController
 
+before_filter :authenticate_user!
   def index
     @bars = Bar.all
 
