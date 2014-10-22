@@ -12,6 +12,13 @@
   %b Email:
   = @user.email
 %p
+  %b Recommendations:
+  - @user.recommendations.each do |recommendation|
+    %tr
+      %td= recommendation.bar.try :name
+      %td= recommendation.try :review
+
+%p
   %b Friends:
   %ul
     - for friendship in @user.friendships
