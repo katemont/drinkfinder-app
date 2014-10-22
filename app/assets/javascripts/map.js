@@ -106,7 +106,7 @@ myMap.initialize = function() {
 }
 
 var infoWindowOptions = {
- content: 'You.',
+ content: 'This is you',
 };
 
 function successCallback(position){
@@ -119,8 +119,7 @@ function successCallback(position){
    marker.setPosition(latlng);
    map.setCenter(latlng);
    map.setZoom(18);
-   // popup.setContent('You are here!');
-   // popup.open(map, marker);
+   
    $('#locate').text('locate me');
  };
 
