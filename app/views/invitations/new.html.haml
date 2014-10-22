@@ -1,6 +1,6 @@
 = form_for @invitation do |f|
+  %h1 Like drinkfindr? Invite a friend!
   %p
-    = f.label :recipient_email, "Friend's email address"
-    %br/
+    = f.label :recipient_email, "Email address"
     = f.text_field :recipient_email
-  %p= f.submit "Invite!"
+  %p= f.submit "Invite!", :class => "button expand" 
