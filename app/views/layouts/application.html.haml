@@ -6,6 +6,7 @@
     %title= content_for?(:title) ? yield(:title) : "drinkfinder"
     = stylesheet_link_tag    "application"
     %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Lobster", :rel => "stylesheet", :type => "text/css"}
     = javascript_include_tag "application"
     = csrf_meta_tags
   
