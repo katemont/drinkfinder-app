@@ -75,6 +75,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
+    role = @user.role
     @user.destroy
 
     respond_to do |format|
@@ -82,4 +83,22 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   role = @user.role
+  #   #raise
+  #   if @user.can_destroy?
+  #     @user.destroy
+  #   else
+  #     flash[:notice] = "Maybe you've had one too many. You can't delete the admin user!" 
+  #   end
+  #   respond_to do |format|
+  #     format.html { redirect_to recommendations_url} if role == 'user'
+  #     format.html { redirect_to users_url} if role == 'admin'
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+
 end

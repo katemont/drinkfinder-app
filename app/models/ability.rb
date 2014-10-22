@@ -12,7 +12,8 @@ class Ability
       
     when user.role? :admin
       can :manage, :all
-      
+      can :destroy, :all
+    
     else
       can :create, User
   end

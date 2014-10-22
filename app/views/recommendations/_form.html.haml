@@ -1,12 +1,11 @@
 = form_for(@recommendation) do |f|
   - if @recommendation.errors.any?
     %h2
+    .alert-box.warning.radius
       = pluralize(@recommendation.errors.count, "error")
       prohibited this recommendation from being saved:
-    %ul
       - @recommendation.errors.full_messages.each do |msg|
-        %li= msg
-
+        = msg
   %div
     = label_tag "Search for a bar"
     = text_field_tag "autocomplete"

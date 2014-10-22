@@ -7,8 +7,8 @@
         %th Picture
         %th Name
         %th Email
-        %th Role
-        %th Add
+        %th
+        %th
         %th
         %th
         %th
@@ -20,10 +20,10 @@
           - else
             = link_to image_tag user.gravatar_url
         %td= user.name
-        %td= user.email
-        %td= user.role
-        %td= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :post
+        %td= link_to 'Add Friend', friendships_path(:friend_id => user), :method => :post, title: "Add a friend to see their recommendations", data: {tooltip: true}
         -if current_user.role?(:admin)
+          %td= user.email
+          %td= user.role
           %td= link_to 'Show', user_path(user)
           %td= link_to 'Edit', edit_user_path(user)
           %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }

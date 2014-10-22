@@ -26,6 +26,7 @@
         = h friendship.friend.username
         (#{link_to "remove", friendship, :method => :delete})
   %p= link_to "Find Friends", users_path
+  
   %b Friended by Users:
   %ul
     - for user in @user.inverse_friends
