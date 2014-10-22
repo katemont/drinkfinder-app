@@ -8,6 +8,13 @@ DrinkfinderApp::Application.routes.draw do
   resources :recommendations
   resources :bars
   resources :friendships
+  resources :invitations
+
+    map.resources :invitations
+    map.signup '/signup/:invitation_token', :controller => 'users', :action => 'new'
+  end
+
+  # map.signup '/signup/:invitation_token', :controller => 'users', :action => 'new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
