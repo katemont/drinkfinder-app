@@ -26,7 +26,7 @@ style = [
     {"featureType": "landscape.natural",
         "stylers": [
             {"visibility": "on"},
-            {"color": "#5dff00"},
+            {"color": "#FFFFFF"},
             {"gamma": 4.97},
             {"lightness": -5},
             {"saturation": 100
