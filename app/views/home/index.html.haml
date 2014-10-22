@@ -13,5 +13,13 @@
 %p= link_to "Sign in", user_session_path
 / .panel
 /   %h4 
-/     Latest recommendations
-/   @recommendations = Recommendation.order("created_at DESC").limit(5)
+.panel
+  %h3 Latest recommendations: 
+  - @recommendations.each do |recommendation|
+    %tr
+      %td= recommendation.bar.try :name
+
+      / %td= recommendation.review
+ 
+    
+     
