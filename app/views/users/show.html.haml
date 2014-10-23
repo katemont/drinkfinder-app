@@ -14,13 +14,16 @@
       %li=  "Became a drinkfindr #{time_ago_in_words(@user.created_at)} ago" 
 
 .panel#profile
-  - @user.recommendations.each do |recommendation|
-    .row
-      .large-3.columns.small-3
-        %p
-          %b= recommendation.bar.try :name
-      .large-9.columns
-        %p= recommendation.try :review
+  - if @user.recommendations.any? 
+    - @user.recommendations.each do |recommendation|
+      .row
+        .large-3.columns.small-3
+          %p
+            %b= recommendation.bar.try :name
+        .large-9.columns
+          %p= recommendation.try :review
+  - else
+    %p There's nothing here! Why not make some recommendations?
 
 .panel#profile
   - if @user.friendships.any? 
@@ -32,6 +35,8 @@
         .large-9.columns
         - if @user == current_user
           #{link_to "remove", friendship, :method => :delete}
+  - else
+    %p No friends yet, #{(@user.name)}? That's ok. Go find some!
   - if @user.inverse_friends.any?
     %p
       %b Friended by
