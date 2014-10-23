@@ -6,6 +6,8 @@
     %title= content_for?(:title) ? yield(:title) : "drinkfinder"
     = stylesheet_link_tag    "application"
     %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Lobster", :rel => "stylesheet", :type => "text/css"}
+    %link{href:"//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel:"stylesheet"}
     = javascript_include_tag "application"
     = csrf_meta_tags
   
@@ -15,7 +17,7 @@
         %ul.title-area
           %li.name
             %h1
-              %a= link_to 'DRINKFINDR', root_path 
+              = link_to 'DRINKFINDR', root_path               
           %li.toggle-topbar.menu-icon
             %a{:href => "#"}
               %span Menu
@@ -54,17 +56,18 @@
     - if params[:controller] == "recommendations" && params[:action] == "new"
       #section#map-canvas
 
-    / - if params[:controller] == "recommendations" && params[:action] == "index"
-    /   #section#map-canvas
+    - if params[:controller] == "home" && params[:action] == "index"
+      #section#homemap-canvas
     
     %main
       .row
         = yield
-
+    .push
     %footer
       .row
         \© Kate Montgomery 2014
       .row
-        kate@drinkfindr.com
+        %i{class:"fa fa-envelope"}
+          hullo@drinkfindr.com
       
 

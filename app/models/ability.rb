@@ -9,6 +9,7 @@ class Ability
       can :read, User
       can :update, User, id: user.id
       can :read, User, id: user.id
+      can :read, Bar
       
     when user.role? :admin
       can :manage, :all

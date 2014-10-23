@@ -2,11 +2,11 @@
   %table
     %thead
       %tr
-        %th Name
+        %th Bar name
         %th Location
         %th Review
         %th Tags
-        %th Added
+        %th Added by
     %tbody
       %tr
         %td= @recommendation.bar.try :name
@@ -15,13 +15,8 @@
         %td= raw @recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
         %td= "#{time_ago_in_words(@recommendation.created_at)} ago by #{(@recommendation.user.try :name)}"
 
-  %p= link_to 'Edit', edit_recommendation_path(@recommendation)
-  %p= link_to 'Back', recommendations_path
-
-  / .button-bar
-  /   %ul.button-group{:class => "radius round"}
-  /     %li
-  /       %a.small.button.success{:class => "tiny large alert secondary", :href => "#"} Edit
-  /     %li
-  /       %a.small.button.success{:class => "tiny large alert secondary", :href => "#"} Back
+  .inline-list.right
+    %p= link_to 'Back', recommendations_path
+  -if current_user.role?(:admin)
+    %p= link_to 'Edit', edit_recommendation_path(@recommendation)
      

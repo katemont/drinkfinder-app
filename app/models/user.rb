@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   include Gravtastic
-  gravtastic size: 120, default: "retro", secure: true 
+  gravtastic size: 182, default: "retro", secure: true 
 
   def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s

@@ -1,5 +1,22 @@
 %h1 Edit recommendation
 
-= render 'form'
+= form_for(@recommendation) do |f|
+  - if @recommendation.errors.any?
+    %h2
+    .alert-box.warning.radius
+      = pluralize(@recommendation.errors.count, "error")
+      prohibited this recommendation from being saved:
+      - @recommendation.errors.full_messages.each do |msg|
+        = msg
+  %div
+    = f.label :review, "Recommendation"
+    = f.text_field :review, title: "Your recommendation in 200 characters or fewer", data: {tooltip: true}
+  %div
+    = f.label :tag_list, "Tags"
+    = f.text_field :tag_list, title: "Separate your tags with commas", data: {tooltip: true}
+  
+  .actions
+    = f.submit :class => "button radius" 
 
-= link_to 'Back', recommendations_path
+.inline-list.right
+  = link_to 'Back', recommendations_path

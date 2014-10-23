@@ -34,6 +34,11 @@
     width: 100%; 
   } 
 
+  #homemap-canvas { 
+    height: 50%; 
+    width: 100%; 
+  } 
+
   @media only screen and (min-width: 9999px) {
     .top-bar {
       background: #333333;
@@ -44,18 +49,34 @@
   main {
     padding: 1em 0;
   
-  tr:hover {
-           background-color: #dddddd;
-           transform:scale(1.05,1.05);
-           transition:All 0.7s ease;
-         }
+    tr:hover {
+             background-color: #dddddd;
+             transform:scale(1.05,1.05);
+             transition:All 0.7s ease;
+           }
 
+
+    .panel#bar,.staticmap,.panel#nearby {
+      width: 70%;
+      margin: 0 auto;
+    } 
+
+    .panel#profile {
+      position: center;
+      :hover {
+       background-color: #ffffff;
+      }
+    }
+
+    li {
+      list-style-type: none;
+    }
 
   }
 
   footer {
-    min-height: 100px;
-    background: #c0c0c0;
+    min-height: 90px;
+    background: rgb(242,242,242);
     padding: 1em 0;
     bottom: 0;
     width: 100%;

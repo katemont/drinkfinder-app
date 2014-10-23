@@ -1,25 +1,27 @@
-.panel
-  %h1
-    Welcome to drinkfindr
-  %h2
-    Reliable recommendations from people you know
-%h3
+.small-12.small.columns
+  .welcome
+    %h1
+      Welcome to drinkfindr
+    %h2
+      Reliable recommendations from people you know
 
-/description of drink findr
-/interested? sign up!
+  /description of drink findr
+  /interested? sign up!
 
-%p= link_to "Sign up", new_user_path
-/already a member?   
-%p= link_to "Sign in", user_session_path
-/ .panel
-/   %h4 
-.panel
-  %h3 Latest recommendations: 
-  - @recommendations.each do |recommendation|
-    %tr
-      %td= recommendation.bar.try :name
 
-      / %td= recommendation.review
- 
+  %p= link_to "Sign up",new_user_registration_path, :class => "button expand"
+  #sign-in 
+    %p= link_to "Or if you're already a drinkfindr, sign in...", new_user_session_path
+
+.small-12.small.columns
+  .panel
+    %h3 Latest recommendations: 
+    - @recommendations.each do |recommendation|
+      %tr
+        %b
+          %td= recommendation.bar.try :name
+        %em
+          %td= recommendation.review
+
     
      
