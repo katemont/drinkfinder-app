@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
 User.create(email: "kate@drinkfindr.com", password: "password", role: "admin", username: "Monty", name: "Kate")
@@ -41,6 +34,9 @@ Bar.create(name:"Ye Olde Mitre", location: "Ely Court, Ely Place, London EC1N 6S
 Bar.create(name:"The Southampton Arms", location: "139 Highgate Rd, London NW5 1LE")
 Bar.create(name:"Oskar's Bar at Dabbous", location: "39 Whitfield Street, London, W1T 2SF")
 Bar.create(name:"King Charles I", location: "55-57 Northdown St, London N1 9BL")
+Bar.create(name:"Bar Pepito", location: " 3 Varnishers Yard N1 9DF")
+Bar.create(name:"The Guinea Grill", location: "30 Bruton Pl, London W1J 6NL")
+
 
 Recommendation.delete_all
 Recommendation.create(review: "Only open til 9pm, but the wines, cheese and charcuterie here are all great value and delivered by charming people – fine wines by the glass and bottle", tag_list: "girolle cheese, oenomatic machines, wine", bar_id: Bar.where(name: "New St Wine Shop").first.id, user_id: User.where(name: "Adam").first.id)
@@ -68,5 +64,4 @@ Recommendation.create(review:"Old school…1546 to be precise. A fantastic drink
 Recommendation.create(review:"A few years ago, CAMRA rated this the best pub in London. You can see why: combining a traditional boozer's atmosphere with a slightly hipster array of ales, it's a great place to spend a few hours.", tag_list: "hipster free zone, boozer, ale, CAMRA", bar_id: Bar.where(name: "The Southampton Arms").first.id, user_id: User.where(name: "Dave").first.id)
 Recommendation.create(review:"The restaurant still has a six month waiting list but you can sample the food and the inventively named cocktails in the basement bar. Fizzy Rascal, anyone?", tag_list: "cocktails, michelin starred bar snacks", bar_id: Bar.where(name: "Oskar's Bar at Dabbous").first.id, user_id: User.where(name: "Kate").first.id)
 Recommendation.create(review:"This very small pub, stuffed with odd ephemera, can be surprisingly hard to track down. But it's worth seeking out, if only to enjoy the bar billiards, sometimes attractive bar staff, or tiny toilets.", tag_list: "bar billiards, attractive staff", bar_id: Bar.where(name: "King Charles I").first.id, user_id: User.where(name: "Dave").first.id)
-Recommendation.create(review:"Think sherry's for grannies? Think again. Sample a wide range from the tasting menu or settle for a plate of jamon and a copa of red. They also do good value wine-to-go", tag_list: "sherry, tapas, tiny, wine").first.id, user_id: User.where(name: "Kate").first.id)
-
+Recommendation.create(review:"Think sherry's for grannies? Think again. Sample a wide range from the tasting menu or settle for a plate of jamon and a copa of red. They also do good value wine-to-go", tag_list: "sherry, tapas, tiny, wine", bar_id: Bar.where(name: "Bar Pepito").first.id, user_id: User.where(name: "Kate").first.id)
