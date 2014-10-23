@@ -54,14 +54,21 @@
              transform:scale(1.05,1.05);
              transition:All 0.7s ease;
            }
+    .staticmap {
+      float: center;
+      width: 100%;
+    } 
 
+    li {
+      list-style-type: none;
+    }
 
   }
 
   footer {
     
     min-height: 90px;
-    background: #c0c0c0;
+    background: rgb(242,242,242);
     padding: 1em 0;
     bottom: 0;
     width: 100%;
