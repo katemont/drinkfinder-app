@@ -2,7 +2,7 @@ class BarsController < ApplicationController
 
 before_filter :authenticate_user!
   def index
-    @bars = Bar.all
+    @bars =  Bar.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
