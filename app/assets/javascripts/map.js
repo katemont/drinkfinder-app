@@ -38,7 +38,7 @@ style = [
 myMap.initialize = function() {
 
   var mapOptions = {
-    center: { lat:  51.52, lng: -0.115},     
+    center: { lat:  51.52, lng: -0.115 },     
     zoom: 14,
     mapTypeId:google.maps.MapTypeId.ROADMAP,
     styles: style,
@@ -49,11 +49,19 @@ myMap.initialize = function() {
   var mapCanvas = $('#map-canvas')[0];
 
   map = new google.maps.Map(mapCanvas, mapOptions);
-
-  var markerOptions = {
-    position: new google.maps.LatLng(51.53, -0.109446),
-    map: map
-  };
+  
+  $.get('/bars.json').success(function(barsData) {
+    $bars = $(barsData);
+    $bars.each(function(index, bar) {
+      var markerOptions = {
+        position: new google.maps.LatLng(bar.latitude, bar.longitude),
+        map: map
+      }
+      
+  // var markerOptions = {
+  //   position: new google.maps.LatLng(51.53, -0.109446),
+  //   map: map
+  // };
 
   marker = new google.maps.Marker(markerOptions);
 
