@@ -61,6 +61,14 @@
       margin: 0 auto;
     } 
 
+    .panel#profile {
+      position: center;
+      :hover {
+       background-color: #ffffff;
+      }
+    }
+
+
     li {
       list-style-type: none;
     }
@@ -68,7 +76,6 @@
   }
 
   footer {
-    
     min-height: 90px;
     background: rgb(242,242,242);
     padding: 1em 0;

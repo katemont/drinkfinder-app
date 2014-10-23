@@ -1,37 +1,6 @@
 
 %p= notice
 %p  
-  / - if @user.profile_pic?
-  /   = link_to image_tag(@user.profile_pic.thumb.url), @user.profile_pic.detail.url  
-  / - else
-  /   = link_to image_tag @user.gravatar_url
-  / %p 
-  /   %b= @user.name
-  / %p= @user.email
-  / %p
-  /   %b Your recommendations: 
-  /   - @user.recommendations.each do |recommendation|
-  /     %tr
-  /       %td
-  /         %em 
-  /           = recommendation.bar.try :name
-  /         %p
-  /           = recommendation.try :review
-  / %p
-  /   %b Friends
-  /   %ul
-  /     - for friendship in @user.friendships
-  /       %li
-  /         = h friendship.friend.username
-  /         (#{link_to "remove", friendship, :method => :delete})
-  /   %p= link_to "Find some more friends", users_path
-    
-  /   %b Friended by
-  /   %ul
-  /     - for user in @user.inverse_friends
-  /       %li= h user.username
-  /   %b User since:
-  /   %p= "#{time_ago_in_words(@user.created_at)} ago"
 
   .row
     .large-2.columns.small-3
@@ -47,7 +16,7 @@
       %p= @user.email
       %p=  "Became a drinkfindr #{time_ago_in_words(@user.created_at)} ago" 
 
-  .panel
+  .panel#profile
     - @user.recommendations.each do |recommendation|
       .row
         .large-3.columns.small-3
@@ -56,7 +25,7 @@
         .large-9.columns
           %p= recommendation.try :review
 
-  .panel
+  .panel#profile
     - if @user.friendships.any? 
       %b Your friends
       - for friendship in @user.friendships
