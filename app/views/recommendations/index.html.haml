@@ -1,15 +1,16 @@
+
 %h2 drinkfindr recommendations
 - @recommendations.each do |recommendation|
-  .panel
- 
-    %ul.inline-list#details
-      %li= recommendation.bar.try :name  
-      %li= recommendation.user.try :name
-    %ul
-      %li= recommendation.review
-      / %li= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-    %ul.inline-list
-      %li= link_to 'Show', recommendation
-      -if current_user.role?(:admin)
-        %li= link_to 'Edit', edit_recommendation_path(recommendation)
-        %li= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+  #recommendations-display
+    .panel.zoomIn
+      %ul.inline-list#details
+        %li= recommendation.bar.try :name  
+        %li= recommendation.user.try :name
+      %ul
+        %li= recommendation.review
+        / %li= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+      %ul.inline-list
+        %li= link_to 'Show', recommendation
+        -if current_user.role?(:admin)
+          %li= link_to 'Edit', edit_recommendation_path(recommendation)
+          %li= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }

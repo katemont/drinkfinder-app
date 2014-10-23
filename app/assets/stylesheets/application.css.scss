@@ -55,7 +55,6 @@
              transition:All 0.7s ease;
            }
 
-
     .panel#bar,.staticmap,.panel#nearby {
       width: 70%;
       margin: 0 auto;
@@ -72,8 +71,15 @@
       list-style-type: none;
     }
     
+    .recommendations-display {
+      :hover {
+       transform:scale(1.05,1.05);
+       transition:All 0.7s ease;
+      }
+    }
+
     .inline-list#details {
-      border-bottom: 2px solid rgb(230,230,230);
+      // border-bottom: 2px solid rgb(230,230,230);
       text-align: center;
       font-size: 20px;
     }
