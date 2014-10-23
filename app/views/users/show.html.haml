@@ -33,8 +33,6 @@
   /   %b User since:
   /   %p= "#{time_ago_in_words(@user.created_at)} ago"
 
-
-
   .row
     .large-2.columns.small-3
       %img
@@ -52,29 +50,32 @@
   .panel
     - @user.recommendations.each do |recommendation|
       .row
-        .large-2.columns.small-3
+        .large-3.columns.small-3
           %p
             %b= recommendation.bar.try :name
-        .large-10.columns
+        .large-9.columns
           %p= recommendation.try :review
+
   .panel
-    %b Your friends
-    - for friendship in @user.friendships
-      .row
-        .large-2.columns.small-3
-          %p= h friendship.friend.name
-        #{link_to "remove", friendship, :method => :delete}
-        .large-10.columns
-        %p= link_to "find some more friends!", users_path
-    %p
-      %b Friended by
-      - for user in @user.inverse_friends
+    - if @user.friendships.any? 
+      %b Your friends
+      - for friendship in @user.friendships
         .row
-          .large-2.columns.small-3
-            %p= h user.name
-          .large-10.columns
-              
+          .large-3.columns.small-3
+            %p= h friendship.friend.name    
+          .large-9.columns
+            #{link_to "remove", friendship, :method => :delete}
+    - if @user.inverse_friends.any?
+      %p
+        %b Friended by
+        - for user in @user.inverse_friends
+          .row
+            .large-2.columns.small-3
+              %p= h user.name
+            .large-10.columns
+                
   .inline-list
+    %li= link_to "Find some more friends!", users_path
     %li= link_to 'Edit your profile', edit_user_path(@user)
     %li= link_to 'Back', users_path
     
