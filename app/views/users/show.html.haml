@@ -1,6 +1,6 @@
-.panel
-  %p= notice
-  %p  
+
+%p= notice
+%p  
   / - if @user.profile_pic?
   /   = link_to image_tag(@user.profile_pic.thumb.url), @user.profile_pic.detail.url  
   / - else
@@ -46,8 +46,9 @@
       %p
     %p 
       %b= @user.name
-    %p= @user.email
+      %p= @user.email
 
+  .panel
     - @user.recommendations.each do |recommendation|
       .row
         .large-2.columns.small-3
@@ -55,15 +56,15 @@
             %b= recommendation.bar.try :name
         .large-10.columns
           %p= recommendation.try :review
-    %p
-      %b Your friends
-      - for friendship in @user.friendships
-        .row
-          .large-2.columns.small-3
-            %p= h friendship.friend.username
-          #{link_to "remove", friendship, :method => :delete}
-          .large-10.columns
-          %p= link_to "find some more friends!", users_path
+  .panel
+    %b Your friends
+    - for friendship in @user.friendships
+      .row
+        .large-2.columns.small-3
+          %p= h friendship.friend.username
+        #{link_to "remove", friendship, :method => :delete}
+        .large-10.columns
+        %p= link_to "find some more friends!", users_path
     %p
       %b Friended by
       - for user in @user.inverse_friends
