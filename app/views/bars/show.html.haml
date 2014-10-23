@@ -1,5 +1,5 @@
 
-.panel
+.panel#bar
   %h2= @bar.name
   %p= @bar.location
 
@@ -11,17 +11,16 @@
       %em 
         %td= recommendation.user.try :name
 
-.staticmap
+.panel.staticmap
   = image_tag "http://maps.google.com/maps/api/staticmap?size=800x300&sensor=false&zoom=18&markers=#{@bar.latitude}%2C#{@bar.longitude}&style=saturation:-100|gamma:0.8|lightness:4|visibility:on|&style=feature:landscape.natural|visibility:on|color:0xFFFFFF|gamma:4.97|lightness:-5|saturation:100"
 
-.panel
+.panel#nearby
   %h4 Recommended bars nearby
   %ul
     - for bar in @bar.nearbys(2)
       %li
         = link_to bar.name, bar
         (#{bar.distance.round(2)} miles)
-
-.inline-list
-  %li= link_to 'Edit', edit_bar_path(@bar)
-  %li= link_to 'Back', bars_path
+  .inline-list
+    %li= link_to 'Edit', edit_bar_path(@bar)
+    %li= link_to 'Back', bars_path
