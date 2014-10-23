@@ -14,10 +14,11 @@
     = text_field_tag "name"
   %div
     = f.label :review, "Recommendation"
-    = f.text_field :review, title: "Your recommendation in 200 characters or fewer", data: {tooltip: true}
+    = f.text_field :review, title: "Your recommendation in 200 characters or fewer", data: {tooltip: true}, placeholder: "e.g. This is a must try, fantastic range of ales"
+  
   %div
     = f.label :tag_list, "Tags"
-    = f.text_field :tag_list, title: "Separate your tags with commas", data: {tooltip: true}
+    = f.text_field :tag_list, title: "Separate your tags with commas", data: {tooltip: true}, placeholder: "e.g. beer, fireplace, dirty martini, scotch eggs..."
   
   .actions
     = f.submit :class => "button radius" 
