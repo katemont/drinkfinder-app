@@ -36,7 +36,7 @@ myMap.initialize = function(){
 
   var mapOptions = {
     center: { lat: 51.52, lng: -0.115 }, 
-   51.5262 and longitude of city of Old Street is -0.0851. zoom: 14, 
+    zoom: 14, 
     mapTypeId: google.maps.MapTypeId.ROADMAP, 
     styles: style,
     scrollwheel: false,

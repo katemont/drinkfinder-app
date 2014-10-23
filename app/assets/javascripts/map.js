@@ -11,29 +11,29 @@ function detectBrowser() {
   }
 }
 
-var myMap = myMap || {},
-map = {},
-marker = {};
-popup = {}
-style = [
-    {"stylers": [
-            {"saturation": -100},
-            {"gamma": 0.8},
-            {"lightness": 4},
-            {"visibility": "on"}
-        ]
-    },
-    {"featureType": "landscape.natural",
-        "stylers": [
-            {"visibility": "on"},
-            {"color": "#FFFFFF"},
-            {"gamma": 4.97},
-            {"lightness": -5},
-            {"saturation": 100
-            }
-        ]
-    }
-]
+var myMap   = myMap || {},
+    map     = {},
+    marker  = {},
+    popup   = {},
+    style   = [
+        {"stylers": [
+                {"saturation": -100},
+                {"gamma": 0.8},
+                {"lightness": 4},
+                {"visibility": "on"}
+            ]
+        },
+        {"featureType": "landscape.natural",
+            "stylers": [
+                {"visibility": "on"},
+                {"color": "#FFFFFF"},
+                {"gamma": 4.97},
+                {"lightness": -5},
+                {"saturation": 100
+                }
+            ]
+        }
+    ];
 
 myMap.initialize = function() {
 
@@ -58,10 +58,25 @@ myMap.initialize = function() {
         map: map
       }
       
-  // var markerOptions = {
-  //   position: new google.maps.LatLng(51.53, -0.109446),
-  //   map: map
-  // };
+      var marker = new google.maps.Marker(markerOptions);
+
+      var infoWindowOptions = {
+        content: bar.name }
+
+        var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+
+        google.maps.event.addListener(marker, 'click', function(){
+          infoWindow.open(map, marker);
+
+        });
+
+      });
+  })
+      
+  var markerOptions = {
+    position: new google.maps.LatLng(51.53, -0.109446),
+    map: map
+  };
 
   marker = new google.maps.Marker(markerOptions);
 
