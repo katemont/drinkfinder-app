@@ -47,6 +47,7 @@
     %p 
       %b= @user.name
       %p= @user.email
+      %p=  "Became a drinkfindr #{time_ago_in_words(@user.created_at)} ago" 
 
   .panel
     - @user.recommendations.each do |recommendation|
@@ -61,7 +62,7 @@
     - for friendship in @user.friendships
       .row
         .large-2.columns.small-3
-          %p= h friendship.friend.username
+          %p= h friendship.friend.name
         #{link_to "remove", friendship, :method => :delete}
         .large-10.columns
         %p= link_to "find some more friends!", users_path
@@ -70,12 +71,9 @@
       - for user in @user.inverse_friends
         .row
           .large-2.columns.small-3
-            %p= h user.username
+            %p= h user.name
           .large-10.columns
-            %b User since:
-            = "#{time_ago_in_words(@user.created_at)} ago"    
-
-
+              
   .inline-list
     %li= link_to 'Edit your profile', edit_user_path(@user)
     %li= link_to 'Back', users_path
