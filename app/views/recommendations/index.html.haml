@@ -3,7 +3,7 @@
 - @recommendations.each do |recommendation|
   #recommendations-display
     .panel
-      %ul
+      %ul.right
         - if recommendation.user.profile_pic?
           %li= link_to image_tag(recommendation.user.profile_pic.thumb.url), recommendation.user
         - else
@@ -12,6 +12,7 @@
       %ul.inline-list#details
         %li= recommendation.bar.try :name  
         %li= recommendation.user.try :name
+        %li= "drinkfound #{time_ago_in_words(recommendation.created_at)} ago"
       %ul
         %li= recommendation.review
         / %li= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')

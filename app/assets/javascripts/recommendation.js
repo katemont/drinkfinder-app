@@ -1,18 +1,4 @@
 
-// $().ready(function(e){
-
-//   $('.recommendations-display').on('click', 'a', function(e) {
-//     e.preventDefault();
-//     // console.log($(this).attr('href'));
-//     $('.recommendations-display').load($(this).attr('href') + ' .recommendations-display', function() {
-//       $('.recommendation').hide();
-//       $('.recommendation').each(function(i) {
-//         $(this).delay((i++) * 500).fadeIn('slow'); 
-//       });
-//     });
-//   });
-// });
-
 // // Character counter needs amending
 
 // // $().ready(function(e){
