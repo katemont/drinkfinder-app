@@ -1,50 +1,47 @@
 
-%p= notice
-%p  
+.row
+  .large-2.columns.small-3
+    %img
+      - if @user.profile_pic?
+        = link_to image_tag(@user.profile_pic.thumb.url), @user.profile_pic.detail.url  
+      - else
+        = link_to image_tag @user.gravatar_url
+  .large-10.columns
+    %p
+  %p 
+    %b= @user.name
+    %p= @user.email
+    %p=  "Became a drinkfindr #{time_ago_in_words(@user.created_at)} ago" 
 
-  .row
-    .large-2.columns.small-3
-      %img
-        - if @user.profile_pic?
-          = link_to image_tag(@user.profile_pic.thumb.url), @user.profile_pic.detail.url  
-        - else
-          = link_to image_tag @user.gravatar_url
-    .large-10.columns
-      %p
-    %p 
-      %b= @user.name
-      %p= @user.email
-      %p=  "Became a drinkfindr #{time_ago_in_words(@user.created_at)} ago" 
+.panel#profile
+  - @user.recommendations.each do |recommendation|
+    .row
+      .large-3.columns.small-3
+        %p
+          %b= recommendation.bar.try :name
+      .large-9.columns
+        %p= recommendation.try :review
 
-  .panel#profile
-    - @user.recommendations.each do |recommendation|
+.panel#profile
+  - if @user.friendships.any? 
+    %b Your friends
+    - for friendship in @user.friendships
       .row
         .large-3.columns.small-3
-          %p
-            %b= recommendation.bar.try :name
+          %p= h friendship.friend.name    
         .large-9.columns
-          %p= recommendation.try :review
-
-  .panel#profile
-    - if @user.friendships.any? 
-      %b Your friends
-      - for friendship in @user.friendships
+          #{link_to "remove", friendship, :method => :delete}
+  - if @user.inverse_friends.any?
+    %p
+      %b Friended by
+      - for user in @user.inverse_friends
         .row
-          .large-3.columns.small-3
-            %p= h friendship.friend.name    
-          .large-9.columns
-            #{link_to "remove", friendship, :method => :delete}
-    - if @user.inverse_friends.any?
-      %p
-        %b Friended by
-        - for user in @user.inverse_friends
-          .row
-            .large-2.columns.small-3
-              %p= h user.name
-            .large-10.columns
-                
-  .inline-list
-    %li= link_to "Find some more friends!", users_path
-    %li= link_to 'Edit your profile', edit_user_path(@user)
-    %li= link_to 'Back', users_path
-    
+          .large-2.columns.small-3
+            %p= h user.name
+          .large-10.columns
+              
+.inline-list
+  %li= link_to "Find some more friends!", users_path
+  %li= link_to 'Edit your profile', edit_user_path(@user)
+  %li= link_to 'Back', users_path
+  
