@@ -35,7 +35,7 @@ style = [
 myMap.initialize = function(){
 
   var mapOptions = {
-    center: { lat: 51.53, lng: -0.115 }, 
+    center: { lat: 51.52, lng: -0.115 }, 
     zoom: 14, 
     mapTypeId: google.maps.MapTypeId.ROADMAP, 
     styles: style,
