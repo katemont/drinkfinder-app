@@ -39,7 +39,8 @@ myMap.initialize = function(){
     zoom: 14, 
     mapTypeId: google.maps.MapTypeId.ROADMAP, 
     styles: style,
-    scrollwheel: false
+    scrollwheel: false,
+    zoomControl: false
   };
 
   var homemapCanvas = $('#homemap-canvas')[0];
