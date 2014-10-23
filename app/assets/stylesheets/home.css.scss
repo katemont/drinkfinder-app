@@ -7,11 +7,16 @@
     color:rgb(248,108,96);
     font-family: 'Lobster', cursive;
     font-size: 100px;
+    @media only screen and (max-width: 40em) {
+      font-size: 50px;
+
+     }
   }
 
   h2 {
     color:rgb(171,171,171);
-    line-height: 100px;
+    // line-height: 100px;
+    font-family: 'Lato', sans-serif;
   }
 
   #sign-in:hover {
