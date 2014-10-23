@@ -1,12 +1,5 @@
 %h1 Bars
 %table
-  %thead
-    %tr
-      %th Name
-      %th Address
-      %th 
-      %th 
-      %th
   %tbody
     - @bars.each do |bar|
       %tr
@@ -14,6 +7,6 @@
         %td= bar.location
         / %td= bar.longitude
         / %td= bar.latitude
-
-        %td= link_to 'Edit', edit_bar_path(bar)
-        %td= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' }
+        -if current_user.role?(:admin)
+          %td= link_to 'Edit', edit_bar_path(bar)
+          %td= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' }

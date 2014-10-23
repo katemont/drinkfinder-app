@@ -9,5 +9,6 @@
       / %li= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
       %ul.inline-list
         %li= link_to 'Show', recommendation
-        %li= link_to 'Edit', edit_recommendation_path(recommendation)
-        %li= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+        -if current_user.role?(:admin)
+          %li= link_to 'Edit', edit_recommendation_path(recommendation)
+          %li= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }

@@ -21,6 +21,6 @@
       %li
         = link_to bar.name, bar
         (#{bar.distance.round(2)} miles)
-  .inline-list
+  .inline-list#bar
     %li= link_to 'Edit', edit_bar_path(@bar)
     %li= link_to 'Back', bars_path
