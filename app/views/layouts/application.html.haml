@@ -17,7 +17,7 @@
         %ul.title-area
           %li.name
             %h1
-              = link_to 'DRINKFINDR', root_path               
+              = link_to 'DRINKFINDR', root_path      
           %li.toggle-topbar.menu-icon
             %a{:href => "#"}
               %span Menu
@@ -25,7 +25,7 @@
           / Right Nav Section
           %ul.right
             %li
-              = link_to 'Recommend somewhere!', new_recommendation_path
+              = link_to 'Recommend somewhere!', new_recommendation_path, data: {tooltip: true}, title: "Search for and add bars here"  
             %li.has-dropdown.active
               %a{:href => "#"} Explore
               %ul.dropdown
