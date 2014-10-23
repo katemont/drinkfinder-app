@@ -2,7 +2,13 @@
 %h2 drinkfindr recommendations
 - @recommendations.each do |recommendation|
   #recommendations-display
-    .panel.zoomIn
+    .panel
+      %ul
+        - if recommendation.user.profile_pic?
+          %li= link_to image_tag(recommendation.user.profile_pic.thumb.url), recommendation.user
+        - else
+          %li= link_to image_tag(recommendation.user.gravatar_url), recommendation.user 
+
       %ul.inline-list#details
         %li= recommendation.bar.try :name  
         %li= recommendation.user.try :name
