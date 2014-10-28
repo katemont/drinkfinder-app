@@ -9,4 +9,5 @@ DrinkfinderApp::Application.routes.draw do
   resources :bars
   resources :friendships
 
+ 
 end
