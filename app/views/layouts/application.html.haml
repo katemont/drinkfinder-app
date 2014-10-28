@@ -54,11 +54,8 @@
         - tag_cloud Recommendation.tag_counts, %w[s m l] do |tag, css_class|
           = link_to tag.name, tag_path(tag.name), class: css_class
       
-    - if params[:controller] == "recommendations" && params[:action] == "new"
+    - if params[:controller] == "recommendations" && params[:action] == "new" || params[:controller] == "home" && params[:action] == "index"
       #section#map-canvas
-
-    - if params[:controller] == "home" && params[:action] == "index"
-      #section#homemap-canvas
     
     %main
       .row
