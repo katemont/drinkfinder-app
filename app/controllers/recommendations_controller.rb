@@ -2,8 +2,6 @@ class RecommendationsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :search, :show]
   
   def index
-    @q = Recommendation.search(params[:q])
-    @recommendations = @q.result
     if params[:tag]
       @recommendations = Recommendation.tagged_with(params[:tag])
     else
