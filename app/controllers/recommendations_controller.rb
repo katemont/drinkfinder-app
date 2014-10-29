@@ -1,12 +1,6 @@
 class RecommendationsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :search, :show]
   
-  def search
-    @q = Recommendation.search(params[:q])
-    @recommendations = @q.result
-    render "index"
-  end
-
   def index
     @q = Recommendation.search(params[:q])
     @recommendations = @q.result
