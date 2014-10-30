@@ -4,8 +4,12 @@
     = f.text_field :review_cont
   %p
     = f.submit
-%h1
-  = @recommendations_search.first
+
+    = @recommendation_search.each do |recommendation_search|
+      %ul
+        %li= recommendation_search.bar.try :name  
+      %ul
+        %li= recommendation_search.try :review
 
 %h2 drinkfindr recommendations
 - @recommendations.each do |recommendation|

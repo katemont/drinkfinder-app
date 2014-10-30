@@ -4,9 +4,7 @@ class RecommendationsController < ApplicationController
   def index
     @q = Recommendation.search(params[:q])
     @recommendation_search = @q.result(distinct: true)
-    puts "*"*50
-    puts @recommendation_search.inspect
-    puts "*"*50
+
     if params[:tag]
       @recommendations = Recommendation.tagged_with(params[:tag])
     else
