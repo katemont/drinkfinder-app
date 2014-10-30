@@ -5,7 +5,7 @@
   %p
     = f.submit
 
-    = @recommendation_search.each do |recommendation_search|
+    - @recommendation_search.each do |recommendation_search|
       %ul
         %li= recommendation_search.bar.try :name  
       %ul
