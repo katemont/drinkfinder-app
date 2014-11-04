@@ -13,6 +13,7 @@ gem 'gravtastic'
 gem 'geocoder'
 gem 'cancancan', '~> 1.9'
 
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
