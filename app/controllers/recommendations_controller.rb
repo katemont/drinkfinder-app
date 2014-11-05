@@ -3,19 +3,33 @@ class RecommendationsController < ApplicationController
   
   def index
     @q = Recommendation.search(params[:q])
-    @recommendation_search = @q.result(distinct: true)
+    
+    @recommendation_search = []
 
-    if params[:tag]
-      @recommendations = Recommendation.tagged_with(params[:tag])
-    else
-      @recommendations = Recommendation.order("created_at DESC")
+    if !params[:q].blank?
+      @recommendation_search = @q.result(distinct: true)
+    end
+
+    @recommendations = []
+    
+    if @recommendation_search.empty? 
+      list_recommendations
+    end 
+
     respond_to do |format|
       format.html
       format.json { render json: @recommendations }
     end
   end
-end
 
+  def list_recommendations
+    if params[:tag]
+      @recommendations = Recommendation.tagged_with(params[:tag])
+    else
+      @recommendations = Recommendation.order("created_at DESC")
+
+    end
+  end
   def show
     @recommendation = Recommendation.find(params[:id])
     respond_to do |format|
@@ -27,7 +41,7 @@ end
   def new
     @recommendation = Recommendation.new
     @bars = Bar.all
-  
+
     @recommendation.user_id = current_user.id if current_user
     respond_to do |format|
       format.html 
