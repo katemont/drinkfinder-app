@@ -19,7 +19,7 @@
     - for bar in @bar.nearbys(2)
       %li
         = link_to bar.name, bar
-        (#{bar.distance.round(2)} miles)
+        (#{bar.distance.to_f.round(2)} miles)
   .inline-list#bar
     %li= link_to 'Back', bars_path
   - if current_user.role?(:admin)

@@ -6,8 +6,8 @@
     %title= content_for?(:title) ? yield(:title) : "drinkfinder"
     = stylesheet_link_tag    "application"
     %script{:src => "https://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
-    %link{:href => "http://fonts.googleapis.com/css?family=Lobster", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "http://fonts.googleapis.com/css?family=Lato", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Lobster", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Lato", :rel => "stylesheet", :type => "text/css"}
     %link{href:"//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", rel:"stylesheet"}
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -66,6 +66,6 @@
         \© Kate Montgomery 2014
       .row
         %i{class:"fa fa-envelope"}
-          hullo@drinkfindr.com
+          = mail_to 'hullo@drinkfindr.com'
       
 
