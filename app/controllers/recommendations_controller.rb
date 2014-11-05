@@ -26,7 +26,7 @@ class RecommendationsController < ApplicationController
     if params[:tag]
       @recommendations = Recommendation.tagged_with(params[:tag])
     else
-      @recommendations = Recommendation.order("created_at DESC")
+      @recommendations = Recommendation.where(user_id: current_user.friends).order("created_at DESC")
 
     end
   end

@@ -11,27 +11,28 @@
       %ul
         %li= recommendation_search.try :review
 
-%h2 drinkfindr recommendations
-- @recommendations.each do |recommendation|
-  #recommendations-display
-    .panel
-      %ul.right#profile
-        - if recommendation.user.profile_pic?
-          %li= link_to image_tag(recommendation.user.profile_pic.thumb.url), recommendation.user
-          %li= recommendation.user.try :name
-        - else
-          %li= link_to image_tag(recommendation.user.gravatar_url), recommendation.user 
-          %li= recommendation.user.try :name
+- if !@recommendations.empty? 
+  %h2 drinkfindr recommendations
+  - @recommendations.each do |recommendation|
+    #recommendations-display
+      .panel
+        %ul.right#profile
+          - if recommendation.user.profile_pic?
+            %li= link_to image_tag(recommendation.user.profile_pic.thumb.url), recommendation.user
+            %li= recommendation.user.try :name
+          - else
+            %li= link_to image_tag(recommendation.user.gravatar_url), recommendation.user 
+            %li= recommendation.user.try :name
 
-      %ul.inline-list#details
-        %li= recommendation.bar.try :name  
-        %li
-          %em= "drinkfound #{time_ago_in_words(recommendation.created_at)} ago"
-      %ul
-        %li= recommendation.review
-        / %li= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-      %ul.inline-list
-        %li= link_to 'Show', recommendation
-        -if current_user.role?(:admin)
-          %li= link_to 'Edit', edit_recommendation_path(recommendation)
-          %li= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
+        %ul.inline-list#details
+          %li= recommendation.bar.try :name  
+          %li
+            %em= "drinkfound #{time_ago_in_words(recommendation.created_at)} ago"
+        %ul
+          %li= recommendation.review
+          / %li= raw recommendation.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+        %ul.inline-list
+          %li= link_to 'Show', recommendation
+          -if current_user.role?(:admin)
+            %li= link_to 'Edit', edit_recommendation_path(recommendation)
+            %li= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' }
