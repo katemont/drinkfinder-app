@@ -3,9 +3,7 @@ class RecommendationsController < ApplicationController
   
   def index
     @q = Recommendation.search(params[:q])
-    
     @recommendation_search = []
-
     if !params[:q].blank?
       @recommendation_search = @q.result(distinct: true)
     end
@@ -27,9 +25,9 @@ class RecommendationsController < ApplicationController
       @recommendations = Recommendation.tagged_with(params[:tag])
     else
       @recommendations = Recommendation.where(user_id: current_user.friends).order("created_at DESC")
-
     end
   end
+  
   def show
     @recommendation = Recommendation.find(params[:id])
     respond_to do |format|

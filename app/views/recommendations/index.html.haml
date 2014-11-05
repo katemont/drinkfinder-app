@@ -1,15 +1,16 @@
 = search_form_for @q do |f|
   %p
-    = f.label :review_cont
+  .small-10.columns
     = f.text_field :review_cont
   %p
-    = f.submit
+  .small-2.columns
+    = f.submit :class => "button postfix" 
 
-    - @recommendation_search.each do |recommendation_search|
-      %ul
-        %li= recommendation_search.bar.try :name  
-      %ul
-        %li= recommendation_search.try :review
+  - @recommendation_search.each do |recommendation_search|
+    %ul
+      %li= recommendation_search.bar.try :name  
+    %ul
+      %li= recommendation_search.try :review
 
 - if !@recommendations.empty? 
   %h2 drinkfindr recommendations
