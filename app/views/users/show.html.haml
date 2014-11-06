@@ -27,27 +27,28 @@
 
 .panel#profile
   - if @user.friendships.any? 
-    %b Your friends
-    - for friendship in @user.friendships
-      .row
-        .large-3.columns.small-3
-          %p= h friendship.friend.try :name  
-        .large-9.columns
-        - if @user == current_user
-          #{link_to "remove", friendship, :method => :delete}
+    %p
+      %b Following
+      - for friendship in @user.friendships
+        .row
+          .large-3.columns.small-3
+            %p= h friendship.friend.try :name  
+          .large-9.columns
+          - if @user == current_user
+            #{link_to "remove", friendship, :method => :delete}
   - else
-    %p No friends yet, #{(@user.name)}? That's ok. Go find some!
+    %p Not following anyone yet, #{(@user.name)}? That's ok. Go to "find friends" to see users' recommendations!
   - if @user.inverse_friends.any?
     %p
-      %b Friended by
+      %b Followed by
       - for user in @user.inverse_friends
         .row
           .large-2.columns.small-3
-            %p= h user.name
+            %p= h user.try :name
           .large-10.columns
               
 .inline-list
-  %li= link_to "Find some more friends!", users_path
+  %li= link_to "Find some more friends to follow!", users_path
   %li= link_to 'Edit your profile', edit_user_path(@user)
   %li= link_to 'Back', users_path
   
