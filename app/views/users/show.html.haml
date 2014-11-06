@@ -31,7 +31,7 @@
     - for friendship in @user.friendships
       .row
         .large-3.columns.small-3
-          %p= h friendship.friend.name    
+          %p= h friendship.friend.try :name  
         .large-9.columns
         - if @user == current_user
           #{link_to "remove", friendship, :method => :delete}
