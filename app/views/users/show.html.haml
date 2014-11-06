@@ -35,9 +35,9 @@
             %p= h friendship.friend.try :name  
           .large-9.columns
           - if @user == current_user
-            #{link_to "remove", friendship, :method => :delete}
+            #{link_to "Unfollow", friendship, :method => :delete}
   - else
-    %p Not following anyone yet, #{(@user.name)}? That's ok. Go to "find friends" to see users' recommendations!
+    %p Not following anyone yet, #{(@user.name)}? That's ok. Go to "find friends" to see user recommendations!
   - if @user.inverse_friends.any?
     %p
       %b Followed by
